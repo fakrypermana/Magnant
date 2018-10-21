@@ -21,8 +21,8 @@
         android:background="?android:attr/windowBackground"
         app:itemBackground="@color/colorPrimaryLight"
         android:foreground="?attr/selectableItemBackground"
-        app:itemIconTint="@color/colorGray"
-        app:itemTextColor="@color/colorGray"
+        app:itemIconTint="@color/selector"
+        app:itemTextColor="@color/selector"
         app:menu="@menu/navigation" />
 
 </android.support.design.widget.CoordinatorLayout>
