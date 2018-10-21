@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Magnant</string>
+    <string name="home">Home</string>
+    <string name="controlling">Controlling</string>
+    <string name="shop">Shop</string>
+    <string name="emergency">Emergency</string>
+    <string name="profile">Profile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
