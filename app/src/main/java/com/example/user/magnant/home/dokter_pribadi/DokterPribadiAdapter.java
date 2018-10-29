@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ public class DokterPribadiAdapter extends RecyclerView.Adapter<DokterPribadiAdap
         TextView tv_nama,tv_pengalaman,tv_pasien,tv_harga;
         ImageView iv_dokter;
         CardView cv_dokter;
+        Button btn_pesan,btn_view_more;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -37,6 +39,8 @@ public class DokterPribadiAdapter extends RecyclerView.Adapter<DokterPribadiAdap
             tv_harga = itemView.findViewById(R.id.tv_harga_dokter_pribadi);
             iv_dokter = itemView.findViewById(R.id.iv_dokter_pribadi);
             cv_dokter = itemView.findViewById(R.id.cv_dokter_pribadi);
+            btn_pesan = itemView.findViewById(R.id.btn_pesan_dokter_pribadi);
+            btn_view_more = itemView.findViewById(R.id.btn_view_more_dokter_pribadi);
         }
     }
 
@@ -50,13 +54,31 @@ public class DokterPribadiAdapter extends RecyclerView.Adapter<DokterPribadiAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(DokterPribadiAdapter.ViewHolder viewHolder, int i) {
+        viewHolder.tv_nama.setText(listDokter.get(i).getNama());
+        viewHolder.tv_pengalaman.setText(listDokter.get(i).getExp());
+        viewHolder.tv_pasien.setText(String.valueOf(listDokter.get(i).getPasien()));
+        viewHolder.tv_harga.setText(String.valueOf(listDokter.get(i).getHarga()));
 
+        //btn listener
+        viewHolder.btn_pesan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        viewHolder.btn_view_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listDokter.size();
     }
 
 
