@@ -37,7 +37,8 @@
                 android:id="@+id/menu_dokter_pribadi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:clickable="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -86,7 +87,7 @@
                                 android:textSize="10sp"
                                 android:layout_marginRight="16dp"
                                 android:text="Masa kehamilan bersama dokter kandunganmu, Dapatkan fitur Konseling dan Monitoring"
-                                android:textColor="@color/colorPrimaryDark"/>
+                                android:textColor="@color/colorDarkGray"/>
 
                         </LinearLayout>
 
@@ -100,7 +101,8 @@
                 android:id="@+id/menu_hubungi_dokter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:clickable="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -149,7 +151,7 @@
                                 android:textSize="10sp"
                                 android:layout_marginRight="16dp"
                                 android:text="Tanya jawab langsung dengan dokter kandungan terpercaya"
-                                android:textColor="@color/colorPrimaryDark"/>
+                                android:textColor="@color/colorDarkGray"/>
 
                         </LinearLayout>
 
