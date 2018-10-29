@@ -4,17 +4,15 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toolbar;
 
-import com.example.user.magnant.Fragment.ControlFragment;
-import com.example.user.magnant.Fragment.EmergencyFragment;
-import com.example.user.magnant.Fragment.HomeFragment;
-import com.example.user.magnant.Fragment.ProfileFragment;
-import com.example.user.magnant.Fragment.ShopFragment;
+import com.example.user.magnant.controlling.ControlFragment;
+import com.example.user.magnant.emergency.EmergencyFragment;
+import com.example.user.magnant.home.HomeFragment;
+import com.example.user.magnant.profile.ProfileFragment;
+import com.example.user.magnant.shop.ShopFragment;
 
 public class MainActivity extends AppCompatActivity {
 

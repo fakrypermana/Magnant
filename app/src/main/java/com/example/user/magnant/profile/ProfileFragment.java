@@ -1,4 +1,4 @@
-package com.example.user.magnant.Fragment;
+package com.example.user.magnant.profile;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,24 +12,22 @@ import android.widget.Toolbar;
 
 import com.example.user.magnant.R;
 
-
-public class ControlFragment extends Fragment {
+public class ProfileFragment extends Fragment {
     private android.support.v7.widget.Toolbar toolbar;
 
-    public ControlFragment() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_control, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        toolbar = view.findViewById(R.id.toolbar_control);
+        toolbar = view.findViewById(R.id.toolbar_profile);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
-        toolbar.setTitle("Controlling");
+        getActivity().setTitle("Profile");
 
         return view;
     }

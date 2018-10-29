@@ -1,4 +1,4 @@
-package com.example.user.magnant.Fragment;
+package com.example.user.magnant.shop;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,23 +12,23 @@ import android.view.ViewGroup;
 
 import com.example.user.magnant.R;
 
-public class EmergencyFragment extends Fragment {
+
+public class ShopFragment extends Fragment {
     private Toolbar toolbar;
 
-    public EmergencyFragment() {
+    public ShopFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_emergency, container, false);
+        View view = inflater.inflate(R.layout.fragment_shop, container, false);
 
-        toolbar = view.findViewById(R.id.toolbar_emergency);
+        toolbar = view.findViewById(R.id.toolbar_shop);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
-        getActivity().setTitle("Emergency");
+        getActivity().setTitle("Shop");
 
         return view;
     }

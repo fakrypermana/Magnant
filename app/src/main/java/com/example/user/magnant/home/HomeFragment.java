@@ -1,4 +1,4 @@
-package com.example.user.magnant.Fragment;
+package com.example.user.magnant.home;
 
 import android.content.Context;
 import android.net.Uri;
@@ -30,6 +30,8 @@ public class HomeFragment extends Fragment {
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
         getActivity().setTitle("Home");
+
+
 
         return view;
     }

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryLight">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_dokter_pribadi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:elevation="1dp"
+        android:background="@color/colorPrimaryLight">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:weightSum="5"
+            android:orientation="vertical"
+            android:background="@color/colorPrimaryLight">
+
+            <LinearLayout
+                android:id="@+id/data_primer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:orientation="horizontal"
+                android:weightSum="7">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_dokter_pribadi"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_gravity="center|bottom"
+                        android:src="@drawable/doctor_pribadi"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv_nama_dokter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="Nama Dokter"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginLeft="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pengalaman"
+                            android:textSize="12dp"
+                            android:textColor="@color/colorDarkGray"/>
+
+                        <TextView
+                            android:id="@+id/tv_pengalaman"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 2 "
+                            android:textSize="12dp"
+                            android:textColor="@color/colorPrimary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="tahun"
+                            android:textSize="12dp"
+                            android:textColor="@color/colorDarkGray"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginLeft="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pasien tertangani "
+                            android:textSize="12dp"
+                            android:textColor="@color/colorDarkGray"/>
+
+                        <TextView
+                            android:id="@+id/tv_pasien_tertangani_dokter_pribadi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="23"
+                            android:textSize="12dp"
+                            android:textColor="@color/colorPrimary"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginLeft="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="RP."
+                            android:textSize="12dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/tv_harga_dokter_pribadi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2.000.000"
+                            android:textSize="12dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/bulan"
+                            android:textSize="12dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorGray"/>
+
+            <LinearLayout
+                android:id="@+id/data_sekunder"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    android:gravity="start">
+
+                    <Button
+                        android:id="@+id/btn_view_more_dokter_pribadi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:background="null"
+                        android:textSize="12dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textAllCaps="false"
+                        android:text="Lihat Selengkapnya" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    android:gravity="end|center"
+                    android:layout_marginRight="8dp">
+
+                    <Button
+                        android:id="@+id/btn_pesan_dokter_pribadi"
+                        android:layout_width="96dp"
+                        android:layout_height="24dp"
+                        android:background="@color/colorAccent"
+                        android:layout_margin="4dp"
+                        android:textSize="12dp"
+                        android:text="Pesan" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
