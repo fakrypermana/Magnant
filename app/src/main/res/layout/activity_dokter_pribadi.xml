@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.dokter_pribadi.DokterPribadiActivity">
+    tools:context=".home.dokter_pribadi.DokterPribadiActivity"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -28,21 +29,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingTop="10dp"
-                android:text="New Release Films"
-                android:textColor="#111"
-                android:textSize="16dp" />
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_dokter_pribadi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:scrollbars="vertical" />
+                android:scrollbars="vertical"
+                tools:listitem="@layout/item_dokter_pribadi"/>
         </LinearLayout>
 
         <View
