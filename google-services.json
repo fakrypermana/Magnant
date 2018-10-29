@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "189206923381",
+    "firebase_url": "https://magnant-89fdf.firebaseio.com",
+    "project_id": "magnant-89fdf",
+    "storage_bucket": "magnant-89fdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189206923381:android:091cca70276c43d0",
+        "android_client_info": {
+          "package_name": "com.example.user.magnant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189206923381-a42ikf17bg7ulmh3vn7q32vbf5eermub.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.user.magnant",
+            "certificate_hash": "7a6d938dd70f435ae79d50e1848162b745afced1"
+          }
+        },
+        {
+          "client_id": "189206923381-nfskagthamnmpqteqabtoo8q2f7abcni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD67BiJaH7nSeBEi77WAge9vTUyce3x2nI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189206923381-nfskagthamnmpqteqabtoo8q2f7abcni.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
