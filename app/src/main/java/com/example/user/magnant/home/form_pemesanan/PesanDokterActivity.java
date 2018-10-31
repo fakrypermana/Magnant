@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.example.user.magnant.R;
 
-public class FormPesanDokterActivity extends AppCompatActivity {
+public class PesanDokterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_pesan_dokter);
+        setContentView(R.layout.activity_pesan_dokter);
     }
 }
