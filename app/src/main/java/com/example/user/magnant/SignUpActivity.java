@@ -86,6 +86,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
     }
+    //    @Override
+    //    protected void onStart() {
+    //        super.onStart();
+    //
+    //        if(mAuth.getCurrentUser() != null){
+    //            finish();
+    //            startActivity(new Intent(this, MainActivity.class));
+    //        }
+    //    }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {

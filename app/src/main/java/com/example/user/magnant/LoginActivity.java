@@ -79,15 +79,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        if(mAuth.getCurrentUser() != null){
-            finish();
-            startActivity(new Intent(this, MainActivity.class));
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        if(mAuth.getCurrentUser() != null){
+//            finish();
+//            startActivity(new Intent(this, MainActivity.class));
+//            Toast.makeText(getApplicationContext(), mAuth.getCurrentUser().getDisplayName(), Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
     @Override
     public void onClick(View view) {

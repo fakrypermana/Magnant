@@ -1,5 +1,6 @@
 package com.example.user.magnant;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -14,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,9 +26,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 public class ProfileRegActivity extends AppCompatActivity {
 
@@ -36,7 +41,7 @@ public class ProfileRegActivity extends AppCompatActivity {
     Uri uriProfileImage;
     ProgressBar progressBar;
 
-    String profileImageUrl;
+    Uri profileImageUrl;
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +88,7 @@ public class ProfileRegActivity extends AppCompatActivity {
 
             UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
                     .setDisplayName(displayName)
-                    .setPhotoUri(Uri.parse(profileImageUrl))
+                    .setPhotoUri(profileImageUrl)
                     .build();
 
             user.updateProfile(profile)
@@ -92,7 +97,7 @@ public class ProfileRegActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             progressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
-                                Toast.makeText(ProfileRegActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ProfileRegActivity.this, "Register successful", Toast.LENGTH_SHORT).show();
                                 finish();
                                 Intent intent = new Intent(ProfileRegActivity.this, MainActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -120,26 +125,39 @@ public class ProfileRegActivity extends AppCompatActivity {
     }
 
     private void uploadImageToFirebaseStorage() {
-        String displayName = editText.getText().toString();
         final StorageReference profileImageRef =
-                FirebaseStorage.getInstance().getReference("profilepics/" + displayName+"_"+System.currentTimeMillis() + ".jpg");
+                FirebaseStorage.getInstance().getReference().child("profilepics/"+System.currentTimeMillis() + ".jpg");
 
         if (uriProfileImage != null) {
             progressBar.setVisibility(View.VISIBLE);
-            profileImageRef.putFile(uriProfileImage)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            profileImageUrl = profileImageRef.getDownloadUrl().toString();
-                            saveUserInformation();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(ProfileRegActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+            UploadTask uploadTask = profileImageRef.putFile(uriProfileImage);
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    // Continue with the task to get the download URL
+                    return profileImageRef.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        profileImageUrl = task.getResult();
+                        saveUserInformation();
+                    } else {
+                        Toast.makeText(ProfileRegActivity.this, "GAGAL", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(ProfileRegActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
         }
     }
     private void showImageChooser() {

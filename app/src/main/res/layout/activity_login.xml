@@ -78,7 +78,6 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorAccent" />
 
-
         </LinearLayout>
 
         <ProgressBar
