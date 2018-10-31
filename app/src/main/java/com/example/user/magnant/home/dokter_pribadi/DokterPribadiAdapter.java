@@ -31,7 +31,7 @@ public class DokterPribadiAdapter extends RecyclerView.Adapter<DokterPribadiAdap
         CardView cv_dokter;
         Button btn_pesan,btn_view_more;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_nama = itemView.findViewById(R.id.tv_nama_dokter);
             tv_pengalaman = itemView.findViewById(R.id.tv_pengalaman);
@@ -46,7 +46,7 @@ public class DokterPribadiAdapter extends RecyclerView.Adapter<DokterPribadiAdap
 
     @NonNull
     @Override
-    public DokterPribadiAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public DokterPribadiAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.item_dokter_pribadi, viewGroup, false);
         return new ViewHolder(view);
@@ -54,12 +54,7 @@ public class DokterPribadiAdapter extends RecyclerView.Adapter<DokterPribadiAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DokterPribadiAdapter.ViewHolder viewHolder, int i) {
-        /*viewHolder.tv_nama.setText("dfsdgasdg");
-        viewHolder.tv_pengalaman.setText("gfdgsdgdfg");
-        viewHolder.tv_pasien.setText(String.valueOf("gfdgsdfgdsf"));
-        viewHolder.tv_harga.setText(String.valueOf("gdsfgdsfg"));
-*/
+    public void onBindViewHolder(DokterPribadiAdapter.ViewHolder viewHolder, int i) {
         viewHolder.tv_nama.setText(listDokter.get(i).getNama());
         viewHolder.tv_pengalaman.setText(listDokter.get(i).getExp());
         viewHolder.tv_pasien.setText(String.valueOf(listDokter.get(i).getPasien()));

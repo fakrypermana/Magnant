@@ -1,13 +1,10 @@
 package com.example.user.magnant.home.dokter_pribadi;
 
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -16,11 +13,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.user.magnant.MyApplication;
 import com.example.user.magnant.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -32,72 +24,61 @@ import java.util.List;
 public class DokterPribadiActivity extends AppCompatActivity {
 
     private static final String TAG = DokterPribadiActivity.class.getSimpleName();
+    private static final String URL = "https://api.myjson.com/bins/1g8twq";
 
     private RecyclerView recyclerView;
-    private List<DokterModel> dokterList = new ArrayList<>();
+    private List<DokterModel> dokterList;
     private DokterPribadiAdapter mAdapter;
-    private Toolbar toolbar;
-    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dokter_pribadi);
 
-        dokterList.add(new DokterModel("Dr.Sinta Wijayanti", "3 tahun", 24, 1500000));
-        dokterList.add(new DokterModel("Dr.Sinta Wijayanti", "3 tahun", 24, 1500000));
-        dokterList.add(new DokterModel("Dr.Sinta Wijayanti", "3 tahun", 24, 1500000));
-        dokterList.add(new DokterModel("Dr.Sinta Wijayanti", "3 tahun", 24, 1500000));
-        dokterList.add(new DokterModel("Dr.Sinta Wijayanti", "3 tahun", 24, 1500000));
-
-        toolbar = findViewById(R.id.toolbar_dokter_pribadi);
         recyclerView = findViewById(R.id.rv_dokter_pribadi);
-        setSupportActionBar(toolbar);
+        dokterList = new ArrayList<>();
+        mAdapter = new DokterPribadiAdapter(this,dokterList);
 
-
-        //firebase
-        FirebaseDatabase mFirebase = FirebaseDatabase.getInstance();
-        mDatabase = mFirebase.getReference("dokter");
-
-
-        //layout
-
-        mAdapter = new DokterPribadiAdapter(getApplicationContext(),dokterList);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle("Daftar Dokter");
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 3);
+        recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
         recyclerView.setNestedScrollingEnabled(false);
 
+        fetchItems();
+
     }
 
+    private void fetchItems() {
+        JsonArrayRequest request = new JsonArrayRequest(URL,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        if (response == null) {
+                            Toast.makeText(getApplicationContext(),"Couldn't fetch the items! Pleas try again.", Toast.LENGTH_LONG).show();
+                            return;
+                        }
 
-    public void getData(){
-        mDatabase.addValueEventListener(new ValueEventListener() {
+                        List<DokterModel> items = new Gson().fromJson(response.toString(), new TypeToken<List<DokterModel>>() {
+                        }.getType());
+                        Log.i(TAG, "onResponse: magi"+items);
+                        dokterList.clear();
+                        dokterList.addAll(items);
+
+                        // refreshing recycler view
+                        mAdapter.notifyDataSetChanged();
+                    }
+                }, new Response.ErrorListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot adSnapshot: dataSnapshot.getChildren()) {
-                    DokterModel dokter = adSnapshot.getValue(DokterModel.class);
-                    Log.d(TAG, "onDataChange: isi dokter"+dokter);
-                    dokterList.add(dokter);
-                }
-                Log.d("magi", "magi"+dokterList.size());
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w(TAG, "onCancelled: ", databaseError.toException());
+            public void onErrorResponse(VolleyError error) {
+                // error in getting json
+                Log.e(TAG, "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
 
-    public void onRecyclerItemClicked(int position){
-        DokterModel dokter = dokterList.get(position);
-        
+        Log.i(TAG, "onResponse: magi"+request.toString());
+        MyApplication.getInstance().addToRequestQueue(request);
     }
 
 }
