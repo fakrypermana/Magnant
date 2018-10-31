@@ -16,13 +16,47 @@
         <include
             android:id="@+id/toolbar_emergency"
             layout="@layout/toolbar" />
+
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <!--Layout here-->
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hello World Lorem Ipsum dolor"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <view class="android.support.v7.app.AlertController$RecycleListView"
+                android:id="@+id/rv_emergency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+            </view>
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <!--End of layout-->
 
         <View
             android:id="@+id/shadow_view"
