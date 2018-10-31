@@ -4,25 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.example.user.magnant.MyApplication;
 
 import com.example.user.magnant.R;
 import com.example.user.magnant.home.form_pemesanan.PesanDokterActivity;
-import com.example.user.magnant.profile.ClickListener;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONArray;
+import com.example.user.magnant.ClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +38,12 @@ public class DokterPribadiActivity extends AppCompatActivity {
         mAdapter = new DokterPribadiAdapter(dokterList, new ClickListener() {
             @Override
             public void onPositionClicked(int position) {
+                DokterModel dokter = dokterList.get(position);
                 Intent intent = new Intent(getApplicationContext(),PesanDokterActivity.class);
+                intent.putExtra("nama","Dr. Sinta Wijayanti");
+                intent.putExtra("exp","4 tahun");
+                intent.putExtra("pasien","1500000");
+                intent.putExtra("harga","1500000");
                 startActivity(intent);
             }
 

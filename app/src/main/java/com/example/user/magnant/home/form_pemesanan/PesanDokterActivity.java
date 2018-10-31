@@ -1,18 +1,17 @@
 package com.example.user.magnant.home.form_pemesanan;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.example.user.magnant.R;
-import com.example.user.magnant.profile.ClickListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,6 +22,7 @@ public class PesanDokterActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private EditText edtNamaPasieb, edtAlamat,edtLamaPesan;
     Button btnNextToPreview;
+    private static final String TAG = PesanDokterActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,7 @@ public class PesanDokterActivity extends AppCompatActivity {
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
                 edtLamaPesan.setText(sdf.format(myCalendar.getTime()));
+                Log.d(TAG, "updateLabel: "+myCalendar.getTime());
             }
 
         };
@@ -76,7 +77,11 @@ public class PesanDokterActivity extends AppCompatActivity {
         btnNextToPreview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext().)
+                Intent intent = new Intent(getApplicationContext(),PreviewOrderActivity.class);
+                intent.putExtra("Alamat", edtAlamat.getText().toString());
+                intent.putExtra("Nama", edtNamaPasieb.getText().toString());
+                intent.putExtra("Lama", edtLamaPesan.getText().toString());
+                startActivity(intent);
             }
         });
 

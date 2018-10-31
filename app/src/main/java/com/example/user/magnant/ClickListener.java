@@ -1,4 +1,4 @@
-package com.example.user.magnant.profile;
+package com.example.user.magnant;
 
 public interface ClickListener {
     void onPositionClicked(int position);
