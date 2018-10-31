@@ -35,16 +35,6 @@
             android:paddingLeft="14dp"
             android:paddingRight="14dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hello World Lorem Ipsum dolor"
-                android:textColor="@android:color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_emergency"
                 android:layout_width="match_parent"
