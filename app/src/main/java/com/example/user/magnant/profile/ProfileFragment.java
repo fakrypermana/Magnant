@@ -55,7 +55,6 @@ public class ProfileFragment extends Fragment {
         return view;
     }
 
-
     private void loadUserInformation(){
         FirebaseUser user = mAuth.getCurrentUser();
 
@@ -64,9 +63,7 @@ public class ProfileFragment extends Fragment {
                 Glide.with(this)
                         .load(user.getPhotoUrl().toString())
                         .into(editProfilePic);
-//                Picasso.get().load(user.getPhotoUrl().toString()).into(editProfilePic);
-                //editProfilePic.setImageDrawable(getResources().getDrawable());
-                //editTextHp.setText(user.getPhotoUrl().toString());
+
             }
             if (user.getDisplayName() != null) {
                 editTextNama.setText(user.getDisplayName());

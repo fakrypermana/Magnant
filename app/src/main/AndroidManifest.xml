@@ -23,7 +23,9 @@
         <activity android:name=".home.dokter_pribadi.DokterPribadiActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ProfileRegActivity"></activity>
+        <activity android:name=".RegProfileActivity" />
+        <activity android:name=".RegPhoneActivity" />
+        <activity android:name=".VerifyPhoneActivity"></activity>
     </application>
 
 </manifest>

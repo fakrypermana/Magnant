@@ -73,7 +73,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 if(task.isSuccessful()){
                     finish();
                     Toast.makeText(getApplicationContext(), "User Register Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(SignUpActivity.this, ProfileRegActivity.class);
+                    Intent intent = new Intent(SignUpActivity.this, RegProfileActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }else{
