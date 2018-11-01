@@ -53,7 +53,6 @@ public class PesanDokter extends Fragment {
         edtAlamat = view.findViewById(R.id.edt_alamat_pasien);
         edtNamaPasieb = view.findViewById(R.id.edt_nama_pasien);
         edtLamaPesan = view.findViewById(R.id.edt_lama_pesanan);
-        btnNextToPreview = view.findViewById(R.id.btn_next_topreview);
 
         final Calendar myCalendar = Calendar.getInstance();
 
@@ -91,12 +90,6 @@ public class PesanDokter extends Fragment {
         });
 
         //btn next
-        btnNextToPreview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
         return view;
     }

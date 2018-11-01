@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        setDefaultFragment();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -57,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
+
+    public void setDefaultFragment(){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container,new HomeFragment());
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 
     private void loadFragment(Fragment fragment) {
         // load fragment`

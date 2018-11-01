@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
-        private static int NUM_ITEMS = 3;
+        private static int NUM_ITEMS = 2;
 
         public ViewPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -36,7 +36,16 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         // Returns the page title for the top indicator
         @Override
         public CharSequence getPageTitle(int position) {
-            return "Page " + position;
+            String title = null;
+            if (position == 0)
+            {
+                title = "Data diri";
+            }
+            else if (position == 1)
+            {
+                title = "Detail";
+            }
+            return title;
         }
 
 
