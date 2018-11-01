@@ -1,12 +1,17 @@
 package com.example.user.magnant.home.form_pemesanan;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -17,26 +22,38 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class PesanDokterActivity extends AppCompatActivity {
+
+public class PesanDokter extends Fragment {
 
     private Toolbar toolbar;
     private EditText edtNamaPasieb, edtAlamat,edtLamaPesan;
     Button btnNextToPreview;
-    private static final String TAG = PesanDokterActivity.class.getSimpleName();
+    private static final String TAG = PesanDokter.class.getSimpleName();
+
+    public PesanDokter() {
+        // Required empty public constructor
+    }
+
+    public static PesanDokter newInstance(int page, String title) {
+        PesanDokter fragmentPesan = new PesanDokter();
+        Bundle args = new Bundle();
+        args.putInt("someInt", page);
+        args.putString("someTitle", title);
+        fragmentPesan.setArguments(args);
+        return fragmentPesan;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pesan_dokter);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view =inflater.inflate(R.layout.fragment_pesan_dokter, container, false);
 
-        toolbar = findViewById(R.id.toolbar_dokter_datadiri);
-        edtAlamat = findViewById(R.id.edt_alamat_pasien);
-        edtNamaPasieb = findViewById(R.id.edt_nama_pasien);
-        edtLamaPesan = findViewById(R.id.edt_lama_pesanan);
-        btnNextToPreview = findViewById(R.id.btn_next_topreview);
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        edtAlamat = view.findViewById(R.id.edt_alamat_pasien);
+        edtNamaPasieb = view.findViewById(R.id.edt_nama_pasien);
+        edtLamaPesan = view.findViewById(R.id.edt_lama_pesanan);
+        btnNextToPreview = view.findViewById(R.id.btn_next_topreview);
 
         final Calendar myCalendar = Calendar.getInstance();
 
@@ -67,7 +84,7 @@ public class PesanDokterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                new DatePickerDialog(PesanDokterActivity.this, date, myCalendar
+                new DatePickerDialog(getActivity(), date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
@@ -77,15 +94,11 @@ public class PesanDokterActivity extends AppCompatActivity {
         btnNextToPreview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),PreviewOrderActivity.class);
-                intent.putExtra("Alamat", edtAlamat.getText().toString());
-                intent.putExtra("Nama", edtNamaPasieb.getText().toString());
-                intent.putExtra("Lama", edtLamaPesan.getText().toString());
-                startActivity(intent);
+
             }
         });
 
+        return view;
     }
-
 
 }

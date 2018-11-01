@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.example.user.magnant.R;
-import com.example.user.magnant.home.form_pemesanan.PesanDokterActivity;
+import com.example.user.magnant.home.form_pemesanan.FormPemesananActivity;
 import com.example.user.magnant.ClickListener;
 
 import java.util.ArrayList;
@@ -39,12 +39,13 @@ public class DokterPribadiActivity extends AppCompatActivity {
             @Override
             public void onPositionClicked(int position) {
                 DokterModel dokter = dokterList.get(position);
-                Intent intent = new Intent(getApplicationContext(),PesanDokterActivity.class);
+                Intent intent = new Intent(getApplicationContext(),FormPemesananActivity.class);
                 intent.putExtra("nama","Dr. Sinta Wijayanti");
                 intent.putExtra("exp","4 tahun");
                 intent.putExtra("pasien","1500000");
                 intent.putExtra("harga","1500000");
                 startActivity(intent);
+                overridePendingTransition( R.anim.slide_up, R.anim.slide_bot );
             }
 
             @Override
@@ -53,7 +54,7 @@ public class DokterPribadiActivity extends AppCompatActivity {
             }
         });
 
-                toolbar = findViewById(R.id.toolbar_dokter_pribadi);
+        toolbar = findViewById(R.id.toolbar_dokter_pribadi);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Daftar Dokter");
