@@ -41,7 +41,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv_nama_preview"
+                    android:id="@+id/tv_nama_pasien"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="nama pasien"
@@ -140,7 +140,7 @@
                     android:id="@+id/tv_nama_dokter_preview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="alamat pasien"
+                    android:text="nama dokter"
                     android:textSize="12sp"
                     android:textColor="@color/colorPrimaryDark"/>
 
@@ -155,7 +155,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Alamat"
+                    android:text="Alamat Klinik"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -164,7 +164,7 @@
                     android:id="@+id/tv_alamat_klinik_preview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="alamat pasien"
+                    android:text="alamat dokter"
                     android:textSize="12sp"
                     android:textColor="@color/colorPrimaryDark"/>
 
@@ -188,7 +188,7 @@
                     android:id="@+id/tv_harga_dokter_preview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="alamat pasien"
+                    android:text="harga tiap bulan"
                     android:textSize="12sp"
                     android:textColor="@color/colorPrimaryDark"/>
 

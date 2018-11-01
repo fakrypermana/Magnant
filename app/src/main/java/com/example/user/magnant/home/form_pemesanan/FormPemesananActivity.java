@@ -43,6 +43,8 @@ public class FormPemesananActivity extends AppCompatActivity {
 
         setTitle("Form Pemesanan");
 
+        TabLayout.Tab tab = tabLayout.getTabAt(1);
+        tab.select();
 
     }
 
