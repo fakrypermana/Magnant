@@ -29,25 +29,11 @@
             android:orientation="vertical"
             android:background="@color/colorGray">
 
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="136dp"
-                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:src="@drawable/banner_iklan"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="0dp" />
-
-            </android.support.constraint.ConstraintLayout>
+                    android:layout_height="172dp"
+                    android:src="@drawable/banner_iklan" />
 
             <android.support.v7.widget.CardView
                 android:id="@+id/menu_dokter_pribadi"

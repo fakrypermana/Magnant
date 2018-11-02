@@ -24,9 +24,11 @@
         <activity android:name=".loginregis.SignUpActivity" />
         <activity android:name=".loginregis.RegProfileActivity" />
         <activity android:name=".loginregis.RegPhoneActivity" />
-        <activity android:name=".loginregis.VerifyPhoneActivity"></activity>
+        <activity android:name=".loginregis.VerifyPhoneActivity" />
         <activity android:name=".home.form_pemesanan.FormPemesananActivity" />
-        <activity android:name=".home.form_pemesanan.PembayaranActivity"></activity>
+        <activity android:name=".home.form_pemesanan.PembayaranActivity" />
+        <activity android:name=".controlling.konseling.DetailKonselingActivity" />
+        <activity android:name=".controlling.konseling.KonselingMessageActivity"></activity>
     </application>
 
 </manifest>
