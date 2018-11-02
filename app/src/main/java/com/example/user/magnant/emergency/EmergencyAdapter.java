@@ -11,14 +11,13 @@ import android.widget.TextView;
 
 import com.example.user.magnant.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class EmergencyAdapter extends RecyclerView.Adapter<EmergencyAdapter.ViewHolder> {
     private Context context;
-    private List<ListofEmergencyItem> listE;
+    private List<EmergencyItem> listE;
 
-    public MyAdapter(Context context, List<ListofEmergencyItem> listE) {
+    public EmergencyAdapter(Context context, List<EmergencyItem> listE) {
         this.context = context;
         this.listE = listE;
     }
@@ -33,9 +32,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        ListofEmergencyItem listItem = listE.get(i);
+        EmergencyItem listItem = listE.get(i);
         viewHolder.tvHead.setText(listItem.getHead());
         viewHolder.tvDesc.setText(listItem.getDesc());
+
+        //TODO: Click feature in here
     }
 
     @Override
