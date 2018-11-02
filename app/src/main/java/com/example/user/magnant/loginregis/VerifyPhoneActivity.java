@@ -1,20 +1,24 @@
-package com.example.user.magnant;
+package com.example.user.magnant.loginregis;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.user.magnant.MainActivity;
+import com.example.user.magnant.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
@@ -39,7 +43,7 @@ public class VerifyPhoneActivity extends AppCompatActivity {
 
         String phonenumber = getIntent().getStringExtra("phonenumber");
         sendVerificationCode(phonenumber);
-
+        FirebaseUser prevUser = FirebaseAuth.getInstance().getCurrentUser();
         findViewById(R.id.buttonSignIn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +64,28 @@ public class VerifyPhoneActivity extends AppCompatActivity {
 
     private void verifyCode(String code) {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
-        signInWithCredential(credential);
+        mAuth.getCurrentUser().linkWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(VerifyPhoneActivity.this.toString(), "linkWithCredential:success");
+                            FirebaseUser user = task.getResult().getUser();
+                            finish();
+                            Intent intent = new Intent(VerifyPhoneActivity.this, MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                            startActivity(intent);
+                        } else {
+                            Log.w(VerifyPhoneActivity.this.toString(), "linkWithCredential:failure", task.getException());
+                            Toast.makeText(VerifyPhoneActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                        // ...
+                    }
+                });
+        //signInWithCredential(credential);
     }
 
     private void signInWithCredential(PhoneAuthCredential credential) {
@@ -68,6 +93,7 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        FirebaseUser currentUser = task.getResult().getUser();
                         if (task.isSuccessful()) {
                             finish();
                             Intent intent = new Intent(VerifyPhoneActivity.this, MainActivity.class);

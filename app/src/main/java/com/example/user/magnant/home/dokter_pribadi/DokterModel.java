@@ -4,9 +4,9 @@ public class DokterModel {
     private String nama;
     private String exp;
     private int pasien;
-    private int harga;
+    private long harga;
 
-    public DokterModel(String nama, String exp, int pasien, int harga) {
+    public DokterModel(String nama, String exp, int pasien, long harga) {
         this.nama = nama;
         this.exp = exp;
         this.pasien = pasien;
@@ -37,11 +37,11 @@ public class DokterModel {
         this.pasien = pasien;
     }
 
-    public int getHarga() {
+    public long getHarga() {
         return harga;
     }
 
-    public void setHarga(int harga) {
+    public void setHarga(long harga) {
         this.harga = harga;
     }
 }

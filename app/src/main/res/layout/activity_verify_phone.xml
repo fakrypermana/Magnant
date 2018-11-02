@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerifyPhoneActivity"
+    tools:context=".loginregis.VerifyPhoneActivity"
     android:background="@color/colorPrimaryLight">
 
     <RelativeLayout
@@ -63,8 +63,8 @@
         android:hint="enter code"
         android:maxLength="6"
         android:textColorHint="@color/colorDarkGray"
+        android:textColor="@color/colorDarkGray"
         android:backgroundTint="@color/colorDarkGray"/>
-
 
     <Button
         android:id="@+id/buttonSignIn"

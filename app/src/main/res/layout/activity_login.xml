@@ -5,82 +5,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
-
+    tools:context=".loginregis.SignUpActivity"
+    android:background="@color/colorPrimaryLight">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
-
         <ImageView
             android:layout_width="85dp"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-             />
-
+            />
     </RelativeLayout>
-
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="337dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
         android:layout_weight="1"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimaryLight">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:orientation="vertical"
+            android:paddingBottom="40dp"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp">
-
+            android:paddingRight="15dp"
+            android:gravity="bottom"
+            android:background="@color/colorPrimary">
 
             <EditText
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
                 android:hint="email"
                 android:inputType="textEmailAddress"
                 android:paddingBottom="15dp"
-                android:textColorHint="@color/colorAccent" />
+                android:layout_marginBottom="10dp"
+                android:textColorHint="@color/colorPrimaryLight" />
 
             <EditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
                 android:hint="password"
                 android:inputType="textPassword"
                 android:paddingBottom="15dp"
-                android:textColorHint="@color/colorAccent" />
+                android:layout_marginBottom="10dp"
+                android:textColorHint="@color/colorPrimaryLight" />
 
             <Button
                 android:id="@+id/buttonLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="7dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/colorAccent"
                 android:text="Login"
                 android:textAllCaps="false"
-                android:textColor="@color/colorAccent" />
-
+                android:textColor="@color/colorPrimaryLight" />
             <TextView
                 android:id="@+id/textViewSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
-                android:text="Don't have account? Sign Up"
+                android:text="Belum punya akun? Registrasi disini"
                 android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorAccent" />
-
-
+                android:textColor="@color/colorPrimaryLight" />
         </LinearLayout>
-
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="120dp"
+            android:background="@drawable/waves1" />
         <ProgressBar
             android:id="@+id/progressbar"
             android:layout_width="wrap_content"
@@ -88,7 +91,6 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:visibility="gone" />
+
     </RelativeLayout>
-
-
 </LinearLayout>

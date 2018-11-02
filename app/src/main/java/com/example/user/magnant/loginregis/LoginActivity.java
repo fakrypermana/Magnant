@@ -1,4 +1,4 @@
-package com.example.user.magnant;
+package com.example.user.magnant.loginregis;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -8,8 +8,11 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.magnant.MainActivity;
+import com.example.user.magnant.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -33,6 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         findViewById(R.id.textViewSignup).setOnClickListener(this);
+        TextView textSignup = findViewById(R.id.textViewSignup);
     }
 
     private void userLogin(){
@@ -79,15 +83,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        if(mAuth.getCurrentUser() != null){
-//            finish();
-//            startActivity(new Intent(this, MainActivity.class));
-//            Toast.makeText(getApplicationContext(), mAuth.getCurrentUser().getDisplayName(), Toast.LENGTH_SHORT).show();
-//        }
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getCurrentUser() != null){
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+            Toast.makeText(getApplicationContext(), mAuth.getCurrentUser().getDisplayName(), Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     public void onClick(View view) {

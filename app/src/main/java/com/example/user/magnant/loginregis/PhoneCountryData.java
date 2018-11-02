@@ -1,4 +1,4 @@
-package com.example.user.magnant;
+package com.example.user.magnant.loginregis;
 
 
 public class PhoneCountryData {
