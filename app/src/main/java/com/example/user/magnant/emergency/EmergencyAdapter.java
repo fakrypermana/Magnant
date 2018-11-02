@@ -36,7 +36,6 @@ public class EmergencyAdapter extends RecyclerView.Adapter<EmergencyAdapter.View
         viewHolder.tvHead.setText(listItem.getHead());
         viewHolder.tvDesc.setText(listItem.getDesc());
 
-        //TODO: Click feature in here
     }
 
     @Override
@@ -52,7 +51,13 @@ public class EmergencyAdapter extends RecyclerView.Adapter<EmergencyAdapter.View
             super(itemView);
             tvHead = itemView.findViewById(R.id.textViewHead);
             tvDesc = itemView.findViewById(R.id.textViewDesc);
-            cvEmergency = itemView.findViewById(R.id.rv_emergency);
+            cvEmergency = itemView.findViewById(R.id.cv_emergence);
+            cvEmergency.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    System.out.println("Clicked info: " + v.getContext());
+                }
+            });
         }
     }
 }
