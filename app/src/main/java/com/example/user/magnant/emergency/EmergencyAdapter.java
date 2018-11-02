@@ -65,8 +65,4 @@ public class EmergencyAdapter extends RecyclerView.Adapter<EmergencyAdapter.View
             listenerWeakRef.get().onPositionClicked(getAdapterPosition());
         }
     }
-
-    public void printIt(View v){
-        System.out.println("Clicked debug_info:  " + (int)v.getTag());
-    }
 }

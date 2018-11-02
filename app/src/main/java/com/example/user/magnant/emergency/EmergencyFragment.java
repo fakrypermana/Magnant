@@ -1,6 +1,7 @@
 package com.example.user.magnant.emergency;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.user.magnant.ClickListener;
 import com.example.user.magnant.R;
@@ -55,7 +55,7 @@ public class EmergencyFragment extends Fragment {
             int j = i + 1;
             EmergencyItem listItem = new EmergencyItem(
                     "Person " + j,
-                    "0857" + i+2 + "34436"+ i +"8"
+                    "0813" + i + "4694153"
             );
 
             this.listItem.add(listItem);
@@ -63,8 +63,14 @@ public class EmergencyFragment extends Fragment {
         adapter = new EmergencyAdapter(listItem, new ClickListener() {
             @Override
             public void onPositionClicked(int position) {
+                String phoneNum = listItem.get(position).getDesc();
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:" + phoneNum));
+
                 // Get data for number
-                Log.d(TAG, "onPositionClicked: "+listItem.get(position).getDesc());
+                Log.d(TAG, "onPositionClicked: "+phoneNum);
+
+                startActivity(intent);
             }
 
             @Override
