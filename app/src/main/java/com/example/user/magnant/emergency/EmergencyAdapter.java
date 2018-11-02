@@ -9,17 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.user.magnant.ClickListener;
 import com.example.user.magnant.R;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class EmergencyAdapter extends RecyclerView.Adapter<EmergencyAdapter.ViewHolder> {
-    private Context context;
     private List<EmergencyItem> listE;
+    private WeakReference<ClickListener> listenerWeakRef;
+    private ClickListener listener;
 
-    public EmergencyAdapter(Context context, List<EmergencyItem> listE) {
-        this.context = context;
+    public EmergencyAdapter(List<EmergencyItem> listE, ClickListener listener) {
         this.listE = listE;
+        this.listener = listener;
     }
 
     @NonNull
@@ -27,7 +30,7 @@ public class EmergencyAdapter extends RecyclerView.Adapter<EmergencyAdapter.View
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.item_list_emergency, viewGroup, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, listener);
     }
 
     @Override
@@ -35,6 +38,13 @@ public class EmergencyAdapter extends RecyclerView.Adapter<EmergencyAdapter.View
         EmergencyItem listItem = listE.get(i);
         viewHolder.tvHead.setText(listItem.getHead());
         viewHolder.tvDesc.setText(listItem.getDesc());
+        /**viewHolder.cvEmergency.setTag(i);
+        viewHolder.cvEmergency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                printIt(v);
+            }
+        });**/
 
     }
 
@@ -43,21 +53,28 @@ public class EmergencyAdapter extends RecyclerView.Adapter<EmergencyAdapter.View
         return listE.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView tvHead, tvDesc;
         public CardView cvEmergency;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, ClickListener clickListener) {
             super(itemView);
+            listenerWeakRef = new WeakReference<>(clickListener);
+
             tvHead = itemView.findViewById(R.id.textViewHead);
             tvDesc = itemView.findViewById(R.id.textViewDesc);
             cvEmergency = itemView.findViewById(R.id.cv_emergence);
-            cvEmergency.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    System.out.println("Clicked info: " + v.getContext());
-                }
-            });
+
+            cvEmergency.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            listenerWeakRef.get().onPositionClicked(getAdapterPosition());
+        }
+    }
+
+    public void printIt(View v){
+        System.out.println("Clicked debug_info:  " + (int)v.getTag());
     }
 }
