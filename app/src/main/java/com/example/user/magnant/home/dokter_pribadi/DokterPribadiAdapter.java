@@ -55,8 +55,8 @@ public class DokterPribadiAdapter extends RecyclerView.Adapter<DokterPribadiAdap
 
         @Override
         public void onClick(View v) {
-
             listenerRef.get().onPositionClicked(getAdapterPosition());
+
         }
 
         @Override

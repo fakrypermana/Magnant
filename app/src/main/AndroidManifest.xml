@@ -4,6 +4,9 @@
     package="com.example.user.magnant">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -26,9 +29,14 @@
         <activity android:name=".loginregis.RegPhoneActivity" />
         <activity android:name=".loginregis.VerifyPhoneActivity" />
         <activity android:name=".home.form_pemesanan.FormPemesananActivity" />
+<<<<<<< HEAD
         <activity android:name=".home.form_pemesanan.PembayaranActivity" />
         <activity android:name=".controlling.konseling.DetailKonselingActivity" />
         <activity android:name=".controlling.konseling.KonselingMessageActivity"></activity>
     </application>
+=======
+        <activity android:name=".home.form_pemesanan.PembayaranActivity"></activity>
+>>>>>>> 50e2670d7960bc8f2944b34c6fb06a13442abeed
 
+    </application>
 </manifest>
