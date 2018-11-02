@@ -55,11 +55,6 @@ public class DokterPribadiAdapter extends RecyclerView.Adapter<DokterPribadiAdap
 
         @Override
         public void onClick(View v) {
-            if (v.getId() == btn_pesan.getId()) {
-                Toast.makeText(v.getContext(), "ITEM PRESSED = " + String.valueOf(getAdapterPosition()), Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(v.getContext(), "ROW PRESSED = " + String.valueOf(getAdapterPosition()), Toast.LENGTH_SHORT).show();
-            }
 
             listenerRef.get().onPositionClicked(getAdapterPosition());
         }

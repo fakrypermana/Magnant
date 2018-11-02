@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import com.example.user.magnant.R;
 import com.example.user.magnant.home.DetailModel;
@@ -63,13 +64,20 @@ public class PesanDokter extends Fragment {
         edtNamaPasien = view.findViewById(R.id.edt_nama_pasien);
         edtLamaPesan = view.findViewById(R.id.edt_lama_pesanan);
 
+
+
         //adddata
         btnAddDataDiri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DetailModel detailModel = new DetailModel(edtNamaPasien.getText().toString().trim(),
-                        edtAlamat.getText().toString().trim(),Integer.parseInt(edtLamaPesan.getText().toString().trim()));
-                SD.sendData(detailModel);
+                if (!edtNamaPasien.getText().toString().trim().equals("") && !edtAlamat.getText().toString().trim().equals("")
+                        && Integer.parseInt(edtLamaPesan.getText().toString().trim()) > 0){
+                    DetailModel detailModel = new DetailModel(edtNamaPasien.getText().toString().trim(),
+                            edtAlamat.getText().toString().trim(),Integer.parseInt(edtLamaPesan.getText().toString().trim()));
+                    SD.sendData(detailModel);
+                } else{
+                    Toast.makeText(v.getContext(), "Mohon lengkapi data! ", Toast.LENGTH_SHORT).show();
+                }
 
 
             }

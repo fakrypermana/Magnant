@@ -6,14 +6,11 @@ public class PemesananModel {
     private int lama_pesan;
     private String nama_dokter;
     private String alamat_klinik;
-    private int harga_perbulan;
+    private double harga_perbulan;
     private double total_bayar;
 
-    public PemesananModel(){
 
-    }
-
-    public PemesananModel(String nama_pasien, String alamat_pasien, int lama_pesan, String nama_dokter, String alamat_klinik, int harga_perbulan, double total_bayar) {
+    public PemesananModel(String nama_pasien, String alamat_pasien, int lama_pesan, String nama_dokter, String alamat_klinik, double harga_perbulan, double total_bayar) {
         this.nama_pasien = nama_pasien;
         this.alamat_pasien = alamat_pasien;
         this.lama_pesan = lama_pesan;
@@ -63,11 +60,11 @@ public class PemesananModel {
         this.alamat_klinik = alamat_klinik;
     }
 
-    public int getHarga_perbulan() {
+    public double getHarga_perbulan() {
         return harga_perbulan;
     }
 
-    public void setHarga_perbulan(int harga_perbulan) {
+    public void setHarga_perbulan(double harga_perbulan) {
         this.harga_perbulan = harga_perbulan;
     }
 

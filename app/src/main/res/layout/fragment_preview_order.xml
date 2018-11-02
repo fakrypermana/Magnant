@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_detail"
     android:layout_width="match_parent"
@@ -13,8 +13,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="72dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,7 +30,7 @@
                     android:layout_height="wrap_content"
                     android:text="Apakah Datamu sudah benar?"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="16sp" />
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -49,8 +50,8 @@
                         android:id="@+id/tv_nama_pasien"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="nama pasien"
-                        android:textSize="12sp"
+                        android:text="-"
+                        android:textSize="16sp"
                         android:textColor="@color/colorPrimaryDark"/>
 
                 </LinearLayout>
@@ -73,8 +74,8 @@
                         android:id="@+id/tv_alamat_preview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="alamat pasien"
-                        android:textSize="12sp"
+                        android:text="-"
+                        android:textSize="16sp"
                         android:textColor="@color/colorPrimaryDark"/>
 
                 </LinearLayout>
@@ -97,8 +98,8 @@
                         android:id="@+id/tv_lama_preview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="lama pasien"
-                        android:textSize="12sp"
+                        android:text="-"
+                        android:textSize="16sp"
                         android:textColor="@color/colorPrimaryDark"/>
 
                 </LinearLayout>
@@ -118,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:text="Apakah Doktermu sudah benar?"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="16sp" />
+                    android:textSize="24sp" />
 
                 <ImageView
                     android:id="@+id/iv_dokter_preview"
@@ -145,8 +146,8 @@
                         android:id="@+id/tv_nama_dokter_preview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="nama dokter"
-                        android:textSize="12sp"
+                        android:text="-"
+                        android:textSize="16sp"
                         android:textColor="@color/colorPrimaryDark"/>
 
                 </LinearLayout>
@@ -169,8 +170,8 @@
                         android:id="@+id/tv_alamat_klinik_preview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="alamat dokter"
-                        android:textSize="12sp"
+                        android:text="-"
+                        android:textSize="16sp"
                         android:textColor="@color/colorPrimaryDark"/>
 
                 </LinearLayout>
@@ -193,8 +194,8 @@
                         android:id="@+id/tv_harga_dokter_preview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="harga tiap bulan"
-                        android:textSize="12sp"
+                        android:text="-"
+                        android:textSize="16sp"
                         android:textColor="@color/colorPrimaryDark"/>
 
                 </LinearLayout>
@@ -230,7 +231,7 @@
                             android:id="@+id/tv_harga_total_dokter_preview"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="13.500.000"
+                            android:text="-"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -264,4 +265,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>

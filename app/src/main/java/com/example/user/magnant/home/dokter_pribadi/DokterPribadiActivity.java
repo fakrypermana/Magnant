@@ -9,12 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.user.magnant.MainActivity;
 import com.example.user.magnant.R;
 import com.example.user.magnant.home.HomeFragment;
 import com.example.user.magnant.home.form_pemesanan.FormPemesananActivity;
 import com.example.user.magnant.ClickListener;
+import com.example.user.magnant.home.form_pemesanan.PemesananModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +35,7 @@ public class DokterPribadiActivity extends AppCompatActivity {
     private List<DokterModel> dokterList = new ArrayList<>();
     private DokterPribadiAdapter mAdapter ;
     private Toolbar toolbar;
+    private ProgressBar progressbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,9 @@ public class DokterPribadiActivity extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.rv_dokter_pribadi);
+        progressbar = findViewById(R.id.progressbar);
+        progressbar.setVisibility(View.VISIBLE);
+
         mAdapter = new DokterPribadiAdapter(dokterList, new ClickListener() {
             @Override
             public void onPositionClicked(int position) {
@@ -98,6 +105,7 @@ public class DokterPribadiActivity extends AppCompatActivity {
                 }
                 mAdapter.notifyDataSetChanged();
                 Log.d(TAG, "no of records of the search is "+dokterList.size());
+                progressbar.setVisibility(View.GONE);
             }
 
             @Override

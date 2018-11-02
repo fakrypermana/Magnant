@@ -34,6 +34,7 @@
                 android:id="@+id/tab_formpemesanan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:tabMode="fixed"
                 app:tabSelectedTextColor="@color/colorPrimaryDark"
                 app:tabTextColor="@color/colorDarkGray">
 

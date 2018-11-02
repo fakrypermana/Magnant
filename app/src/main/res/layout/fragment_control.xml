@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorPrimaryLight">
+    android:background="@color/colorPrimaryLight"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -23,6 +23,108 @@
         android:layout_height="match_parent">
 
         <!--Layout here-->
+
+        <LinearLayout
+            android:id="@+id/page_belumtersedia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Kamu Belum Punya"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp"
+                    android:text="Dokter Pribadi"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="108dp"
+                    android:layout_height="108dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ibu_hamil" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Pilih Dokter Pribadimu"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp"
+                    android:text="Sekarang"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/pesan_dicontrolling"
+                    android:layout_width="128dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorAccent"
+                    android:text="Pesan"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sudah_tersedia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_control"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:tabGravity="fill"
+                app:tabTextAppearance="?android:attr/textAppearanceMedium"
+                app:tabSelectedTextColor="@color/colorPrimaryLight"
+                app:tabTextColor="@color/colorPrimaryLight"
+                android:background="@color/colorPrimary"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager_control"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        </LinearLayout>
 
         <View
             android:id="@+id/shadow_view"

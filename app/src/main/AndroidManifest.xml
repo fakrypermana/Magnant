@@ -23,7 +23,8 @@
         <activity android:name=".home.dokter_pribadi.DokterPribadiActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".home.form_pemesanan.FormPemesananActivity"/>
+        <activity android:name=".home.form_pemesanan.FormPemesananActivity" />
+        <activity android:name=".home.form_pemesanan.PembayaranActivity"></activity>
     </application>
 
 </manifest>
