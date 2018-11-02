@@ -35,14 +35,16 @@
             android:layout_height="150dp"
             android:orientation="horizontal">
 
-            <de.hdodenhof.circleimageview.CircleImageView xmls:app="http://schemas.android.com/apk/res-auto"
+            <ImageView
                 android:id="@+id/profileImage"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
+                android:layout_centerHorizontal="true"
                 android:src="@drawable/ic_camera_alt_black_24dp"
-                android:layout_marginTop="25dp"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#FF000000"/>
+                android:scaleType="centerCrop"
+                android:layout_marginLeft="15dp"
+                android:gravity="center"
+                android:layout_gravity="center"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,27 +53,58 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_gravity="center">
-                <TextView
-                    android:id="@+id/profileNama"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="16dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="My Name"
-                    android:textColor="@color/colorPrimaryDark"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></LinearLayout>
-                <TextView
-                    android:text="Jenis Kelamin"
-                    android:id="@+id/profileNama"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="8dp">
+                    <TextView
+                        android:id="@+id/profileNama"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:text="My Name"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <TextView
+                        android:text="18thn"
+                        android:id="@+id/profileUmur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="@color/colorDarkGray"/>
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:textColor="@color/colorDarkGray"/>
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="8dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center">
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:background="@drawable/ic_phone_black_24dp"
+                            android:tint="@color/colorPrimary"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:text="+62 0000000000"
+                        android:id="@+id/profileNoHp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="@color/colorDarkGray"/>
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>

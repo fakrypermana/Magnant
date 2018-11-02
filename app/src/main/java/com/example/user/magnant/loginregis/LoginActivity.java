@@ -1,4 +1,4 @@
-package com.example.user.magnant;
+package com.example.user.magnant.loginregis;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -8,24 +8,25 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.magnant.MainActivity;
+import com.example.user.magnant.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
-public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
-
-    ProgressBar progressBar;
-    EditText editTextEmail, editTextPassword;
     private FirebaseAuth mAuth;
+    EditText editTextEmail, editTextPassword;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_login);
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
@@ -33,13 +34,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         progressBar=(ProgressBar) findViewById(R.id.progressbar);
         mAuth = FirebaseAuth.getInstance();
 
-        findViewById(R.id.buttonSignUp).setOnClickListener(this);
-        findViewById(R.id.textViewLogin).setOnClickListener(this);
+        findViewById(R.id.buttonLogin).setOnClickListener(this);
+        findViewById(R.id.textViewSignup).setOnClickListener(this);
+        TextView textSignup = findViewById(R.id.textViewSignup);
     }
 
-    private void registerUser(){
-        String email = editTextEmail.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
+    private void userLogin(){
+        String email =  editTextEmail.getText().toString().trim();
+        String password =  editTextPassword.getText().toString().trim();
 
         if (email.isEmpty()) {
             editTextEmail.setError("Email is required");
@@ -64,40 +66,43 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             editTextPassword.requestFocus();
             return;
         }
-
         progressBar.setVisibility(View.VISIBLE);
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
                     finish();
-                    Toast.makeText(getApplicationContext(), "User Register Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(SignUpActivity.this, ProfileRegActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }else{
-                    if(task.getException() instanceof FirebaseAuthUserCollisionException){
-                        Toast.makeText(getApplicationContext(), "You are already registered", Toast.LENGTH_SHORT).show();
-                    } else{
-                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.buttonSignUp:
-                registerUser();
-                break;
 
-            case R.id.textViewLogin:
-                finish();
-                startActivity(new Intent(this, LoginActivity.class));
-                break;
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getCurrentUser() != null){
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+            Toast.makeText(getApplicationContext(), mAuth.getCurrentUser().getDisplayName(), Toast.LENGTH_SHORT).show();
         }
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.textViewSignup:
+                finish();
+                startActivity(new Intent(this, SignUpActivity.class));
+                break;
+            case R.id.buttonLogin:
+                userLogin();
+                break;
+        }
+    }
 }

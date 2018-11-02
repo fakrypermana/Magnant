@@ -57,8 +57,6 @@ public class DokterPribadiActivity extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.rv_dokter_pribadi);
-        progressbar = findViewById(R.id.progressbar);
-        progressbar.setVisibility(View.VISIBLE);
 
         mAdapter = new DokterPribadiAdapter(dokterList, new ClickListener() {
             @Override
@@ -105,7 +103,6 @@ public class DokterPribadiActivity extends AppCompatActivity {
                 }
                 mAdapter.notifyDataSetChanged();
                 Log.d(TAG, "no of records of the search is "+dokterList.size());
-                progressbar.setVisibility(View.GONE);
             }
 
             @Override

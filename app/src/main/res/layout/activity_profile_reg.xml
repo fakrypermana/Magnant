@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ProfileRegActivity">
+    android:background="@color/colorPrimaryLight"
+    tools:context=".loginregis.RegProfileActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -17,7 +18,8 @@
         android:layout_height="wrap_content"
         android:text="Tap on camera to choose profile picture"
         android:textAlignment="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorDarkGray"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -46,14 +48,10 @@
         android:id="@+id/editTextDisplayName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Display Name" />
-
-    <TextView
-        android:id="@+id/textViewVerified"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Verified"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+        android:hint="Enter Display Name"
+        android:textColor="@color/colorDarkGray"
+        android:textColorHint="@color/colorDarkGray"
+        android:backgroundTint="@color/colorDarkGray"/>
 
     <Button
         android:id="@+id/buttonSave"
@@ -64,6 +62,7 @@
         android:paddingLeft="55dp"
         android:paddingRight="55dp"
         android:text="Save"
+        android:background="@color/colorAccent"
         android:textAllCaps="false" />
 
 
