@@ -37,7 +37,7 @@ public class EmergencyFragment extends Fragment {
     private RecyclerView.Adapter adapter;
     private static final String TAG = "qcel";
     private final int REQUEST_PERMISSION_PHONE_STATE=1;
-    private int permission_state;
+    //private boolean isFirstCalled = false;
 
     private List<EmergencyItem> listItem;
 
@@ -49,8 +49,10 @@ public class EmergencyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        //TODO: Set permission handler (https://developer.android.com/training/permissions/requesting?hl=id)
-        showPhoneStatePermission();
+        /**if (!isFirstCalled) {
+            showPhoneStatePermission();
+            isFirstCalled = true;
+        }**/
 
         final View view = inflater.inflate(R.layout.fragment_emergency, container, false);
 
@@ -87,6 +89,9 @@ public class EmergencyFragment extends Fragment {
                     Log.d(TAG, "onPositionClicked: "+phoneNum);
 
                     startActivity(intent);
+                }
+                else{
+                    showPhoneStatePermission();
                 }
 
             }
