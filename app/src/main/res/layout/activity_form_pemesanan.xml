@@ -48,16 +48,6 @@
 
         </LinearLayout>
 
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@color/colorAccent"
-            android:text="Lanjut ke Pembayaran"
-            android:textAllCaps="false"
-            android:textColor="@color/colorPrimaryLight" />
-
         <View
             android:id="@+id/shadow_view"
             android:layout_width="match_parent"

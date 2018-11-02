@@ -15,9 +15,10 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import com.example.user.magnant.R;
+import com.example.user.magnant.home.DetailModel;
 import com.example.user.magnant.home.dokter_pribadi.DokterPribadiActivity;
 
-public class FormPemesananActivity extends AppCompatActivity {
+public class FormPemesananActivity extends AppCompatActivity implements PesanDokter.SendData{
 
     Toolbar toolbar;
     ViewPager viewPager;
@@ -43,8 +44,6 @@ public class FormPemesananActivity extends AppCompatActivity {
 
         setTitle("Form Pemesanan");
 
-        TabLayout.Tab tab = tabLayout.getTabAt(1);
-        tab.select();
 
     }
 
@@ -61,6 +60,13 @@ public class FormPemesananActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void sendData(DetailModel detailModel) {
+        String tag = "android:switcher:" + R.id.view_pager_pesan + ":" + 1;
+        PreviewOrder f = (PreviewOrder) getSupportFragmentManager().findFragmentByTag(tag);
+        f.displayReceivedData(detailModel);
     }
 
 }

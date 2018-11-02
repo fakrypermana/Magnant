@@ -4,13 +4,17 @@ public class DokterModel {
     private String nama;
     private String exp;
     private int pasien;
-    private int harga;
+    private double harga;
+    private String alamat_klinik;
 
-    public DokterModel(String nama, String exp, int pasien, int harga) {
+    public DokterModel(){}
+
+    public DokterModel(String nama, String exp, int pasien, double harga, String alamat_klinik) {
         this.nama = nama;
         this.exp = exp;
         this.pasien = pasien;
         this.harga = harga;
+        this.alamat_klinik = alamat_klinik;
     }
 
     public String getNama() {
@@ -37,11 +41,19 @@ public class DokterModel {
         this.pasien = pasien;
     }
 
-    public int getHarga() {
+    public double getHarga() {
         return harga;
     }
 
-    public void setHarga(int harga) {
+    public void setHarga(double harga) {
         this.harga = harga;
+    }
+
+    public String getAlamat_klinik() {
+        return alamat_klinik;
+    }
+
+    public void setAlamat_klinik(String alamat_klinik) {
+        this.alamat_klinik = alamat_klinik;
     }
 }

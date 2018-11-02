@@ -7,6 +7,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.user.magnant.MainActivity;
@@ -14,13 +15,18 @@ import com.example.user.magnant.R;
 import com.example.user.magnant.home.HomeFragment;
 import com.example.user.magnant.home.form_pemesanan.FormPemesananActivity;
 import com.example.user.magnant.ClickListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DokterPribadiActivity extends AppCompatActivity {
 
-    private static final String TAG = DokterPribadiActivity.class.getSimpleName();
+    private static final String TAG = "fakuy";
 
     private RecyclerView recyclerView;
     private List<DokterModel> dokterList = new ArrayList<>();
@@ -32,23 +38,32 @@ public class DokterPribadiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dokter_pribadi);
 
+
+        /*dokterList.add(new DokterModel("Dr.Sinta Wijayanti","4 tahun", 21,1500000));
         dokterList.add(new DokterModel("Dr.Sinta Wijayanti","4 tahun", 21,1500000));
         dokterList.add(new DokterModel("Dr.Sinta Wijayanti","4 tahun", 21,1500000));
-        dokterList.add(new DokterModel("Dr.Sinta Wijayanti","4 tahun", 21,1500000));
-        dokterList.add(new DokterModel("Dr.Sinta Wijayanti","4 tahun", 21,1500000));
+        dokterList.add(new DokterModel("Dr.Sinta Wijayanti","4 tahun", 21,1500000));*/
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("dokter");
+//        final DokterModel dokterPush = new DokterModel("Dr.Sinta Wijayanti","4 tahun", 21,1500000,"Jln. Telekomunikasi");
+//
+//        myRef.push().setValue(dokterPush);
+
+
 
         recyclerView = findViewById(R.id.rv_dokter_pribadi);
         mAdapter = new DokterPribadiAdapter(dokterList, new ClickListener() {
             @Override
             public void onPositionClicked(int position) {
-                DokterModel dokter = dokterList.get(position);
+                //DokterModel dokter = dokterList.get(position);
                 Intent intent = new Intent(getApplicationContext(),FormPemesananActivity.class);
-                intent.putExtra("nama","Dr. Sinta Wijayanti");
-                intent.putExtra("exp","4 tahun");
-                intent.putExtra("pasien","1500000");
-                intent.putExtra("harga","1500000");
+                intent.putExtra("nama",dokterList.get(position).getNama());
+                intent.putExtra("exp",dokterList.get(position).getExp());
+                intent.putExtra("pasien",dokterList.get(position).getPasien());
+                intent.putExtra("harga",dokterList.get(position).getHarga());
+                intent.putExtra("alamat_klinik",dokterList.get(position).getAlamat_klinik());
                 startActivity(intent);
-                overridePendingTransition( R.anim.slide_up, R.anim.slide_bot );
             }
 
             @Override
@@ -68,6 +83,29 @@ public class DokterPribadiActivity extends AppCompatActivity {
         recyclerView.setNestedScrollingEnabled(false);
 
 
+        //get database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Log.d(TAG, "onDataChange: "+dataSnapshot.getChildrenCount());
+                dokterList.clear();
+                for (DataSnapshot adSnapshot: dataSnapshot.getChildren()) {
+                    DokterModel dokterModel = adSnapshot.getValue(DokterModel.class);
+                    Log.d(TAG, "onDataChange: "+dokterModel.getNama());
+                    dokterList.add(adSnapshot.getValue(DokterModel.class));
+                }
+                mAdapter.notifyDataSetChanged();
+                Log.d(TAG, "no of records of the search is "+dokterList.size());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
     }
 
     @Override

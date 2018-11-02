@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_adddatadiri"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryLight"
     android:orientation="vertical"
     tools:context=".home.dokter_pribadi.DokterPribadiActivity">
     <!--Layout here-->
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,13 +28,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Data diri pasien"
-                android:textStyle="bold"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
-                android:textSize="20sp"
+                android:text="Data diri pasien"
                 android:textColor="@color/colorPrimaryDark"
-                android:layout_marginTop="16dp"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -52,7 +59,7 @@
                     android:background="@drawable/shape_edittext"
                     android:inputType="text"
                     android:padding="16dp"
-                    android:textColor="@color/colorPrimaryDark"/>
+                    android:textColor="@color/colorPrimaryDark" />
 
             </LinearLayout>
 
@@ -79,7 +86,7 @@
                     android:background="@drawable/shape_edittext"
                     android:inputType="text"
                     android:padding="16dp"
-                    android:textColor="@color/colorPrimaryDark"/>
+                    android:textColor="@color/colorPrimaryDark" />
 
             </LinearLayout>
 
@@ -100,22 +107,60 @@
                     android:textColor="@color/colorDarkGray"
                     android:textSize="12sp" />
 
-                <EditText
-                    android:id="@+id/edt_lama_pesanan"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape_edittext"
-                    android:drawableRight="@drawable/ic_date_range_24dp"
-                    android:inputType="text"
-                    android:padding="16dp"
-                    android:textColor="@color/colorPrimaryDark"/>
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/edt_lama_pesanan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_edittext"
+                        android:drawableLeft="@drawable/ic_date_range_24dp"
+                        android:inputType="text"
+                        android:padding="16dp"
+                        android:layout_weight="2"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Bulan"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:layout_weight="10"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
 
         </LinearLayout>
 
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_addDataDiri"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/colorAccent"
+            android:text="Tambahkan data"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryLight" />
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>

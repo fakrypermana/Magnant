@@ -50,9 +50,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-storage:16.0.4'
+    implementation 'com.google.firebase:firebase-database:16.0.4'
 
     //stepview
     implementation 'com.shuhart.stepview:stepview:1.4.0'
+
+
 
 }
 

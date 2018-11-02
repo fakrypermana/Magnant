@@ -24,9 +24,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         @Override
         public Fragment getItem(int position) {
             switch (position) {
-                case 0: // Fragment # 0 - This will show FirstFragment
+                case 0:
                     return PesanDokter.newInstance(0, "Page # 1");
-                case 1: // Fragment # 0 - This will show FirstFragment different title
+                case 1:
                     return PreviewOrder.newInstance(1, "Page # 2");
                 default:
                     return null;
