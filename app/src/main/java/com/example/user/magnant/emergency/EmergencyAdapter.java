@@ -1,6 +1,5 @@
 package com.example.user.magnant.emergency;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -38,13 +37,6 @@ public class EmergencyAdapter extends RecyclerView.Adapter<EmergencyAdapter.View
         EmergencyItem listItem = listE.get(i);
         viewHolder.tvHead.setText(listItem.getHead());
         viewHolder.tvDesc.setText(listItem.getDesc());
-        /**viewHolder.cvEmergency.setTag(i);
-        viewHolder.cvEmergency.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                printIt(v);
-            }
-        });**/
 
     }
 
