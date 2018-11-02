@@ -63,6 +63,7 @@ public class EmergencyFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         listItem = new ArrayList<>();
+        this.listItem.add(new EmergencyItem("Arsyel","085723443658"));
         for (int i = 0; i < 9; i++) {
             int j = i + 1;
             EmergencyItem listItem = new EmergencyItem(
@@ -72,6 +73,7 @@ public class EmergencyFragment extends Fragment {
 
             this.listItem.add(listItem);
         }
+
         adapter = new EmergencyAdapter(listItem, new ClickListener() {
             @Override
             public void onPositionClicked(int position) {
