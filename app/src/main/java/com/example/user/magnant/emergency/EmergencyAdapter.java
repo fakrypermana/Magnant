@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.user.magnant.ClickListener;
@@ -47,7 +48,8 @@ public class EmergencyAdapter extends RecyclerView.Adapter<EmergencyAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView tvHead, tvDesc;
-        public CardView cvEmergency;
+        //public CardView cvEmergency;
+        public Button call_btn;
 
         public ViewHolder(@NonNull View itemView, ClickListener clickListener) {
             super(itemView);
@@ -55,9 +57,11 @@ public class EmergencyAdapter extends RecyclerView.Adapter<EmergencyAdapter.View
 
             tvHead = itemView.findViewById(R.id.textViewHead);
             tvDesc = itemView.findViewById(R.id.textViewDesc);
-            cvEmergency = itemView.findViewById(R.id.cv_emergence);
+            //cvEmergency = itemView.findViewById(R.id.cv_emergence);
+            call_btn = itemView.findViewById(R.id.call_button);
 
-            cvEmergency.setOnClickListener(this);
+            //cvEmergency.setOnClickListener(this);
+            call_btn.setOnClickListener(this);
         }
 
         @Override
