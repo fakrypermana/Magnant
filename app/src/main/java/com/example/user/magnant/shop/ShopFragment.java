@@ -19,6 +19,11 @@ import android.view.ViewGroup;
 import com.example.user.magnant.R;
 import com.example.user.magnant.home.dokter_pribadi.DokterModel;
 import com.example.user.magnant.home.dokter_pribadi.DokterPribadiAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +35,7 @@ public class ShopFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<ObatModel> listObat;
     private ShopAdapter mAdapter;
+    DatabaseReference dbObat;
 
     public ShopFragment() {
         // Required empty public constructor
@@ -63,11 +69,35 @@ public class ShopFragment extends Fragment {
         listObat.add(new ObatModel("Prenagen",1,2000));
         listObat.add(new ObatModel("Prenagen",1,2000));
 
+        dbObat = FirebaseDatabase.getInstance().getReference("obat");
+        dbObat.addListenerForSingleValueEvent(valueEventListener);
+
 
         getActivity().setTitle("Shop");
 
         return view;
     }
+
+    ValueEventListener valueEventListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            listObat.clear();
+            if (dataSnapshot.exists()) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    ObatModel obat = snapshot.getValue(ObatModel.class);
+                    listObat.add(obat);
+                }
+                mAdapter.notifyDataSetChanged();
+            }
+        }
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+
+    }
+
+
     public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
         private int spanCount;
