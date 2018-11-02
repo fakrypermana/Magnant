@@ -64,6 +64,7 @@ public class EmergencyFragment extends Fragment {
             @Override
             public void onPositionClicked(int position) {
                 String phoneNum = listItem.get(position).getDesc();
+                //TODO: Set permission handler (https://developer.android.com/training/permissions/requesting?hl=id)
                 Intent intent = new Intent(Intent.ACTION_CALL);
                 intent.setData(Uri.parse("tel:" + phoneNum));
 
