@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/colorGray">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <include
+            android:id="@+id/toolbar_addMonitoring"
+            layout="@layout/toolbar" />
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+
+               <com.arlib.floatingsearchview.FloatingSearchView
+                   android:id="@+id/floating_search_view"
+                   android:layout_width="match_parent"
+                   android:layout_height="56dp"
+                   app:floatingSearch_close_search_on_keyboard_dismiss="true"
+                   app:floatingSearch_leftActionMode="showSearch"
+                   app:floatingSearch_searchHint="Cari produk makanan..."
+                   app:floatingSearch_showSearchKey="false"
+                   app:floatingSearch_suggestionsListAnimDuration="250" />
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="8dp"
+               android:orientation="vertical">
+
+               <android.support.v7.widget.CardView
+                   android:id="@+id/cv_sesi_konseling"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:background="@color/colorPrimaryLight"
+                   android:clickable="true"
+                   android:elevation="1dp">
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@color/colorPrimaryLight"
+                       android:orientation="vertical">
+
+                       <LinearLayout
+                           android:id="@+id/data_primer"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_margin="16dp"
+                           android:orientation="horizontal"
+                           android:weightSum="7">
+
+                           <LinearLayout
+                               android:layout_width="0dp"
+                               android:layout_height="match_parent"
+                               android:layout_gravity="center"
+                               android:layout_weight="2"
+                               android:gravity="center"
+                               android:orientation="vertical">
+
+                               <ImageView
+                                   android:id="@+id/iv_item_monitoring"
+                                   android:layout_width="72dp"
+                                   android:layout_height="72dp"
+                                   android:layout_gravity="center|bottom"
+                                   android:src="@drawable/chicken" />
+
+                           </LinearLayout>
+
+                           <LinearLayout
+                               android:layout_width="0dp"
+                               android:layout_height="match_parent"
+                               android:layout_gravity="center"
+                               android:gravity="center|start"
+                               android:layout_weight="5"
+                               android:orientation="vertical">
+
+                               <TextView
+                                   android:id="@+id/tv_nama_monitoring"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginLeft="8dp"
+                                   android:layout_marginRight="8dp"
+                                   android:text="Ayam Bakar kol Goreng"
+                                   android:textColor="@color/colorPrimaryDark"
+                                   android:textSize="16dp"
+                                   android:textStyle="bold" />
+
+
+                               <TextView
+                                   android:id="@+id/tv_detail_gizi"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginLeft="8dp"
+                                   android:layout_marginRight="8dp"
+                                   android:text="210 kalori"
+                                   android:textColor="@color/colorDarkGray"
+                                   android:textSize="12dp" />
+
+                           </LinearLayout>
+
+                           <android.support.design.widget.FloatingActionButton
+                               android:id="@+id/fb_add_item"
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:layout_marginRight="8dp"
+                               android:layout_gravity="center"
+                               android:src="@drawable/ic_add_24dp"/>
+
+                       </LinearLayout>
+
+
+
+                   </LinearLayout>
+
+               </android.support.v7.widget.CardView>
+
+           </LinearLayout>
+
+       </LinearLayout>
+
+        <View
+            android:id="@+id/shadow_view"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/dropshadow" />
+
+    </FrameLayout>
+
+</LinearLayout>

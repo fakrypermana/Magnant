@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.user.magnant.MainActivity;
 import com.example.user.magnant.R;
@@ -108,6 +109,7 @@ public class DokterPribadiActivity extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
+                Toast.makeText(getApplicationContext(), "Periksa Koneksi Anda", Toast.LENGTH_SHORT).show();
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });

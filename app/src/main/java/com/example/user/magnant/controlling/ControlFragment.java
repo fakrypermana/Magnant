@@ -104,7 +104,6 @@ public class ControlFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),DokterPribadiActivity.class);
                 startActivity(intent);
-                getActivity().finish();
             }
         });
 

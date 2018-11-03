@@ -117,6 +117,190 @@
 
         </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryLight"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryLight"
+                    android:orientation="vertical">
+
+                    <antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
+                        android:id="@+id/circular_progress"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        app:direction="clockwise"
+                        app:dotWidth="16dp"
+                        app:drawDot="false"
+                        app:enableProgressAnimation="true"
+                        app:progressBackgroundColor="@color/colorGray"
+                        app:progressBackgroundStrokeWidth="8dp"
+                        app:progressCap="round"
+                        app:progressColor="@color/colorAccentYellow"
+                        app:progressStrokeWidth="8dp"
+                        app:startAngle="270"
+                        app:textColor="@color/colorDarkGray"
+                        app:textSize="14sp"
+                        app:fillBackground="false" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kalori"
+                        android:textSize="12dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textAlignment="center"
+                        android:layout_marginBottom="8dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorGray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorPrimaryLight"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="8dp">
+
+                        <antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
+                            android:id="@+id/circular_progress_protein"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="8dp"
+                            app:direction="clockwise"
+                            app:dotWidth="16dp"
+                            app:drawDot="false"
+                            app:enableProgressAnimation="true"
+                            app:progressBackgroundColor="@color/colorGray"
+                            app:progressBackgroundStrokeWidth="4dp"
+                            app:progressCap="round"
+                            app:progressColor="@color/colorAccentRed"
+                            app:progressStrokeWidth="4dp"
+                            app:startAngle="270"
+                            app:textColor="@color/colorDarkGray"
+                            app:textSize="12sp"
+                            app:fillBackground="false" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Protein"
+                            android:textSize="12dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textAlignment="center"
+                            android:layout_marginBottom="8dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="8dp">
+
+                        <antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
+                            android:id="@+id/circular_progress_lemak"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="8dp"
+                            app:direction="clockwise"
+                            app:dotWidth="16dp"
+                            app:drawDot="false"
+                            app:enableProgressAnimation="true"
+                            app:progressBackgroundColor="@color/colorGray"
+                            app:progressBackgroundStrokeWidth="4dp"
+                            app:progressCap="round"
+                            app:progressColor="@color/colorAccentBlue"
+                            app:progressStrokeWidth="4dp"
+                            app:startAngle="270"
+                            app:textColor="@color/colorDarkGray"
+                            app:textSize="12sp"
+                            app:fillBackground="false"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Lemak"
+                            android:textSize="12dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textAlignment="center"
+                            android:layout_marginBottom="8dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="8dp">
+
+                        <antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
+                            android:id="@+id/circular_progress_karbohidrat"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="8dp"
+                            app:direction="clockwise"
+                            app:dotWidth="16dp"
+                            app:drawDot="false"
+                            app:enableProgressAnimation="true"
+                            app:progressBackgroundColor="@color/colorGray"
+                            app:progressBackgroundStrokeWidth="4dp"
+                            app:progressCap="round"
+                            app:progressColor="@color/colorAccentGreen"
+                            app:progressStrokeWidth="4dp"
+                            app:startAngle="270"
+                            app:textColor="@color/colorDarkGray"
+                            app:textSize="12sp"
+                            app:fillBackground="false" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Karbohidrat"
+                            android:textSize="12dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textAlignment="center"
+                            android:layout_marginBottom="8dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
     </LinearLayout>
 
     <LinearLayout
@@ -127,7 +311,7 @@
         android:layout_marginBottom="48dp">
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fb_create_konseling"
+            android:id="@+id/fb_create_monitoring"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
