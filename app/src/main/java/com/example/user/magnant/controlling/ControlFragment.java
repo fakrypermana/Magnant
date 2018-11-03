@@ -8,25 +8,48 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.example.user.magnant.R;
+import com.example.user.magnant.home.form_pemesanan.PemesananModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ControlFragment extends Fragment {
-    Toolbar toolbar;
-    ViewPager viewPager;
-    TabLayout tabLayout;
+    private Toolbar toolbar;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
+    private List<PemesananModel> pemesananModelList = new ArrayList<>();
+    private static final String ARG_KEY_NUMBER = "tab_number";
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("pemesanan");
 
+    private final static String TAG = "fakuy";
+
     public ControlFragment() {
         // Required empty public constructor
+    }
+
+    public static ControlFragment newInstance(int number) {
+        Bundle args = new Bundle();
+        args.putInt(ARG_KEY_NUMBER, number);
+
+        ControlFragment frag = new ControlFragment();
+        frag.setArguments(args);
+
+        return frag;
     }
 
     @Override
@@ -40,6 +63,35 @@ public class ControlFragment extends Fragment {
         viewPager = view.findViewById(R.id.viewpager_control);
         toolbar = view.findViewById(R.id.toolbar_control);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        LinearLayout pageBelumTersedia = view.findViewById(R.id.page_belumtersedia);
+        LinearLayout pageTersedia = view.findViewById(R.id.sudah_tersedia);
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Log.d(TAG, "onDataChange: "+dataSnapshot.getChildrenCount());
+                pemesananModelList.clear();
+                for (DataSnapshot adSnapshot: dataSnapshot.getChildren()) {
+                    pemesananModelList.add(adSnapshot.getValue(PemesananModel.class));
+                }
+                Log.d(TAG, "no of records of the search is "+pemesananModelList.size());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
+        if (pemesananModelList.size()>0){
+            pageTersedia.setVisibility(View.VISIBLE);
+            pageBelumTersedia.setVisibility(View.GONE);
+        } else {
+
+        }
 
 
         ViewPagerControlAdapter adapter = new ViewPagerControlAdapter(getActivity().getSupportFragmentManager());

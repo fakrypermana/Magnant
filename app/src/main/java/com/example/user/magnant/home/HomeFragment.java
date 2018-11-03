@@ -20,9 +20,20 @@ import com.example.user.magnant.home.dokter_pribadi.DokterPribadiActivity;
 public class HomeFragment extends Fragment {
     private Toolbar toolbar;
     private CardView cv_dokter_pribadi;
+    private static final String ARG_KEY_NUMBER = "tab_number";
 
     public HomeFragment() {
         // Required empty public constructor
+    }
+
+    public static HomeFragment newInstance(int number) {
+        Bundle args = new Bundle();
+        args.putInt(ARG_KEY_NUMBER, number);
+
+        HomeFragment frag = new HomeFragment();
+        frag.setArguments(args);
+
+        return frag;
     }
 
     @Override

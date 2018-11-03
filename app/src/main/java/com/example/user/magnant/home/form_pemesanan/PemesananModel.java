@@ -9,6 +9,8 @@ public class PemesananModel {
     private double harga_perbulan;
     private double total_bayar;
 
+    public PemesananModel(){}
+
 
     public PemesananModel(String nama_pasien, String alamat_pasien, int lama_pesan, String nama_dokter, String alamat_klinik, double harga_perbulan, double total_bayar) {
         this.nama_pasien = nama_pasien;

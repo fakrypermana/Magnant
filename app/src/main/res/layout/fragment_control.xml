@@ -20,7 +20,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/container_konseling">
 
         <!--Layout here-->
 
@@ -28,6 +29,8 @@
             android:id="@+id/page_belumtersedia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone">
 
