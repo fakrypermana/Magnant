@@ -54,9 +54,8 @@
                         android:id="@+id/radioTransfer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="radioButtonClicked"
-                        android:text="Transfer"
                         android:checked="true"
+                        android:text="Transfer"
                         android:buttonTint="@color/colorPrimaryDark"
                         android:textColor="@color/colorPrimaryDark"/>
 
@@ -64,7 +63,6 @@
                         android:id="@+id/radioDompet"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onClick="radioButtonClicked"
                         android:text="Dompet"
                         android:buttonTint="@color/colorPrimaryDark"
                         android:textColor="@color/colorPrimaryDark"/>
@@ -74,7 +72,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="false"
-                        android:onClick="radioButtonClicked"
                         android:text="Virtual Account"
                         android:buttonTint="@color/colorPrimaryDark"
                         android:textColor="@color/colorPrimaryDark"/>

@@ -73,12 +73,13 @@ public class PreviewOrder extends Fragment {
         btn_lanjut_pembayaran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (tv_namaDokter.equals("") && tv_alamatPasien.equals("")&& tv_namaPasien.equals("") && tv_lamaPemesanan.equals("")){
+                if (tv_namaDokter.getText().toString().trim().equals("-") || tv_alamatPasien.getText().toString().trim().equals("-")||
+                        tv_namaPasien.getText().toString().trim().equals("-") || tv_lamaPemesanan.getText().toString().trim().equals("-")){
                     Toast.makeText(v.getContext(), "Data belum lengkap ", Toast.LENGTH_SHORT).show();
                 } else{
                     Intent intent = new Intent(getActivity(), PembayaranActivity.class);
                     startActivity(intent);
-                    getActivity().finish();
+                    //getActivity().finish();
                 }
             }
         });

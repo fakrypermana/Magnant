@@ -15,10 +15,8 @@ import android.widget.Toast;
 
 import com.example.user.magnant.MainActivity;
 import com.example.user.magnant.R;
-import com.example.user.magnant.home.HomeFragment;
 import com.example.user.magnant.home.form_pemesanan.FormPemesananActivity;
 import com.example.user.magnant.ClickListener;
-import com.example.user.magnant.home.form_pemesanan.PemesananModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,6 +46,8 @@ public class DokterPribadiActivity extends AppCompatActivity {
         dokterList.add(new DokterModel("Dr.Sinta Wijayanti","4 tahun", 21,1500000));
         dokterList.add(new DokterModel("Dr.Sinta Wijayanti","4 tahun", 21,1500000));
         dokterList.add(new DokterModel("Dr.Sinta Wijayanti","4 tahun", 21,1500000));*/
+        progressbar = findViewById(R.id.progress_bar_dokterlist);
+        progressbar.setVisibility(View.VISIBLE);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("dokter");
@@ -103,13 +103,15 @@ public class DokterPribadiActivity extends AppCompatActivity {
                     dokterList.add(adSnapshot.getValue(DokterModel.class));
                 }
                 mAdapter.notifyDataSetChanged();
+                progressbar.setVisibility(View.GONE);
                 Log.d(TAG, "no of records of the search is "+dokterList.size());
             }
 
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
-                Toast.makeText(getApplicationContext(), "Periksa Koneksi Anda", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Periksa koneksi internet anda!",Toast.LENGTH_LONG).show();
+                progressbar.setVisibility(View.GONE);
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });

@@ -102,6 +102,8 @@ public class RegProfileActivity extends AppCompatActivity {
                             }
                         }
                     });
+        } else{
+            Toast.makeText(getApplicationContext(),"Silahkan pilih fotomu",Toast.LENGTH_LONG).show();
         }
     }
 

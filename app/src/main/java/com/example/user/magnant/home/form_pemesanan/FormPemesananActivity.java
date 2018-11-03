@@ -23,6 +23,7 @@ public class FormPemesananActivity extends AppCompatActivity implements PesanDok
     Toolbar toolbar;
     ViewPager viewPager;
     TabLayout tabLayout;
+    ViewPagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class FormPemesananActivity extends AppCompatActivity implements PesanDok
         viewPager = findViewById(R.id.view_pager_pesan);
 
         //setup layout
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         toolbar = findViewById(R.id.toolbar_form_pesan);
@@ -67,6 +68,7 @@ public class FormPemesananActivity extends AppCompatActivity implements PesanDok
         String tag = "android:switcher:" + R.id.view_pager_pesan + ":" + 1;
         PreviewOrder f = (PreviewOrder) getSupportFragmentManager().findFragmentByTag(tag);
         f.displayReceivedData(detailModel);
+        viewPager.setCurrentItem(1);
     }
 
 }

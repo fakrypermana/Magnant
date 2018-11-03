@@ -108,7 +108,7 @@ public class ControlFragment extends Fragment {
         });
 
 
-        ViewPagerControlAdapter adapter = new ViewPagerControlAdapter(getActivity().getSupportFragmentManager());
+        ViewPagerControlAdapter adapter = new ViewPagerControlAdapter(this.getChildFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();

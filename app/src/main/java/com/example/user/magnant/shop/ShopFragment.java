@@ -17,6 +17,8 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.user.magnant.R;
 import com.example.user.magnant.home.dokter_pribadi.DokterModel;
@@ -38,6 +40,7 @@ public class ShopFragment extends Fragment {
     private List<ObatModel> listObat = new ArrayList<>();
     private ShopAdapter mAdapter;
     private final static String TAG = "obatobatan";
+    private ProgressBar progressBar;
 
     public ShopFragment() {
         // Required empty public constructor
@@ -53,6 +56,7 @@ public class ShopFragment extends Fragment {
 
         mAdapter = new ShopAdapter(getActivity(), listObat);
 
+        progressBar = view.findViewById(R.id.progress_bar_shop);
         recyclerView = view.findViewById(R.id.rv_obat);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
@@ -62,6 +66,7 @@ public class ShopFragment extends Fragment {
         recyclerView.setNestedScrollingEnabled(false);
 
 
+        progressBar.setVisibility(View.VISIBLE);
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -79,11 +84,14 @@ public class ShopFragment extends Fragment {
                     Log.d(TAG, "onDataChange: "+listObat.size());
                 }
                 mAdapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.w(TAG, "Failed to read value.", databaseError.toException());
+                Toast.makeText(getActivity(),"Periksa koneksi internet anda!",Toast.LENGTH_LONG).show();
+                progressBar.setVisibility(View.GONE);
             }
         });
 

@@ -11,17 +11,21 @@ import android.widget.Toast;
 
 import com.example.user.magnant.MainActivity;
 import com.example.user.magnant.R;
-import com.example.user.magnant.home.HomeFragment;
 
 public class PembayaranActivity extends AppCompatActivity {
     Button btn_bayar;
     RadioGroup radioGroup;
+    RadioButton transfer,dompet,virtual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pembayaran);
 
+        transfer = findViewById(R.id.radioTransfer);
+        dompet = findViewById(R.id.radioDompet);
+        virtual = findViewById(R.id.radioVirtualAccount);
+        radioGroup = findViewById(R.id.radio_group);
         btn_bayar = findViewById(R.id.btn_bayar);
         btn_bayar.setOnClickListener(new View.OnClickListener() {
             @Override
