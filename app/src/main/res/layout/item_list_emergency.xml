@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:text="Lorem ipsum dolor sit amet"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="25dp" />
+                android:textSize="18dp" />
 
         </LinearLayout>
 
