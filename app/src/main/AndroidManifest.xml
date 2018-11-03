@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name=".loginregis.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,12 +21,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".home.dokter_pribadi.DokterPribadiActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".loginregis.SignUpActivity" />
         <activity android:name=".loginregis.RegProfileActivity" />
         <activity android:name=".loginregis.RegPhoneActivity" />
-        <activity android:name=".loginregis.VerifyPhoneActivity"></activity>
+        <activity android:name=".loginregis.VerifyPhoneActivity" />
         <activity android:name=".home.form_pemesanan.FormPemesananActivity" />
-        <activity android:name=".home.form_pemesanan.PembayaranActivity"></activity>
+        <activity android:name=".home.form_pemesanan.PembayaranActivity" />
     </application>
 
 </manifest>

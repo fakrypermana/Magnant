@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:xmls="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryLight">
+    android:background="@color/colorPrimaryLight"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/AppTheme.ActionBar"
+        >
 
         <include
             android:id="@+id/toolbar_profile"
@@ -21,7 +23,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <!--Layout here-->
 
@@ -32,84 +35,80 @@
             android:background="@drawable/dropshadow" />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/profileImage"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_camera_alt_black_24dp"
-                android:scaleType="centerCrop"
-                android:layout_marginLeft="15dp"
-                android:gravity="center"
-                android:layout_gravity="center"/>
-
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center">
-
+                android:layout_height="150dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_camera_alt_black_24dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"/>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="8dp">
-                    <TextView
-                        android:id="@+id/profileNama"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="20dp"
-                        android:text="My Name"
-                        android:textColor="@color/colorPrimaryDark"/>
-                    <TextView
-                        android:text="18thn"
-                        android:id="@+id/profileUmur"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12dp"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="@color/colorDarkGray"/>
-                </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="8dp">
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_gravity="center">
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:background="@drawable/ic_phone_black_24dp"
-                            android:tint="@color/colorPrimary"
-                            />
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="8dp">
+                        <TextView
+                            android:id="@+id/profileNama"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:text="My Name"
+                            android:textColor="@color/colorPrimaryDark"/>
+
                     </LinearLayout>
 
-                    <TextView
-                        android:text="+62 0000000000"
-                        android:id="@+id/profileNoHp"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="16dp"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="@color/colorDarkGray"/>
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="8dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_gravity="center">
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:background="@drawable/ic_phone_black_24dp"
+                                android:tint="@color/colorPrimary"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:text="+62 0000000000"
+                            android:id="@+id/profileNoHp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="@color/colorDarkGray"/>
+                    </LinearLayout>
+
                 </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
-
-
     </FrameLayout>
 
 </LinearLayout>

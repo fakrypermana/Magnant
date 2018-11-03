@@ -88,25 +88,6 @@ public class VerifyPhoneActivity extends AppCompatActivity {
         //signInWithCredential(credential);
     }
 
-    private void signInWithCredential(PhoneAuthCredential credential) {
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        FirebaseUser currentUser = task.getResult().getUser();
-                        if (task.isSuccessful()) {
-                            finish();
-                            Intent intent = new Intent(VerifyPhoneActivity.this, MainActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-
-                            startActivity(intent);
-
-                        } else {
-                            Toast.makeText(VerifyPhoneActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-    }
 
     private void sendVerificationCode(String number) {
         progressBar.setVisibility(View.VISIBLE);
