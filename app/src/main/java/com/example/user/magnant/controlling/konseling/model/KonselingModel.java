@@ -1,4 +1,4 @@
-package com.example.user.magnant.controlling.konseling;
+package com.example.user.magnant.controlling.konseling.model;
 
 import java.util.Date;
 
@@ -6,13 +6,13 @@ public class KonselingModel {
     private String nama_konseling;
     private String tgl_sesi;
     private String nama_dokter;
-    private String isi_konseling;
+    private String isi_sesi;
 
-    public KonselingModel(String nama_konseling, String tgl_sesi, String nama_dokter, String isi_konseling) {
+    public KonselingModel(String nama_konseling, String tgl_sesi, String nama_dokter, String isi_sesi) {
         this.nama_konseling = nama_konseling;
         this.tgl_sesi = tgl_sesi;
         this.nama_dokter = nama_dokter;
-        this.isi_konseling = isi_konseling;
+        this.isi_sesi = isi_sesi;
     }
 
     public String getNama_konseling() {
@@ -39,11 +39,11 @@ public class KonselingModel {
         this.nama_dokter = nama_dokter;
     }
 
-    public String getIsi_konseling() {
-        return isi_konseling;
+    public String getisi_sesi() {
+        return isi_sesi;
     }
 
-    public void setIsi_konseling(String isi_konseling) {
-        this.isi_konseling = isi_konseling;
+    public void setisi_sesi(String isi_sesi) {
+        this.isi_sesi = isi_sesi;
     }
 }

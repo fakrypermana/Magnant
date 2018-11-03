@@ -55,6 +55,11 @@ dependencies {
     //stepview
     implementation 'com.shuhart.stepview:stepview:1.4.0'
 
+    //circle progress bar
+    implementation 'com.github.antonKozyriatskyi:CircularProgressIndicator:1.2.2'
+
+    //searh bar material
+    implementation 'com.github.arimorty:floatingsearchview:2.1.1'
 
 }
 

@@ -2,6 +2,7 @@ package com.example.user.magnant.controlling;
 
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,9 +13,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.user.magnant.R;
+import com.example.user.magnant.home.dokter_pribadi.DokterPribadiActivity;
 import com.example.user.magnant.home.form_pemesanan.PemesananModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +35,7 @@ public class ControlFragment extends Fragment {
     private TabLayout tabLayout;
     private List<PemesananModel> pemesananModelList = new ArrayList<>();
     private static final String ARG_KEY_NUMBER = "tab_number";
+    private Button btn_pesan_dicontrolling;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("pemesanan");
@@ -62,6 +66,7 @@ public class ControlFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tab_control);
         viewPager = view.findViewById(R.id.viewpager_control);
         toolbar = view.findViewById(R.id.toolbar_control);
+        btn_pesan_dicontrolling = view.findViewById(R.id.pesan_dicontrolling);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         LinearLayout pageBelumTersedia = view.findViewById(R.id.page_belumtersedia);
         LinearLayout pageTersedia = view.findViewById(R.id.sudah_tersedia);
@@ -86,12 +91,21 @@ public class ControlFragment extends Fragment {
             }
         });
 
-        if (pemesananModelList.size()>0){
+        /*if (pemesananModelList.size()>0){
             pageTersedia.setVisibility(View.VISIBLE);
             pageBelumTersedia.setVisibility(View.GONE);
         } else {
+            pageTersedia.setVisibility(View.GONE);
+            pageBelumTersedia.setVisibility(View.VISIBLE);
+        }*/
 
-        }
+        btn_pesan_dicontrolling.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),DokterPribadiActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         ViewPagerControlAdapter adapter = new ViewPagerControlAdapter(getActivity().getSupportFragmentManager());

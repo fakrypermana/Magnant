@@ -6,20 +6,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.user.magnant.ClickListener;
 import com.example.user.magnant.R;
+import com.example.user.magnant.controlling.konseling.model.KonselingModel;
 
 import java.lang.ref.WeakReference;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class KonselingRVAdapter extends RecyclerView.Adapter<KonselingRVAdapter.ViewHolder>  {

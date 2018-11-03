@@ -1,22 +1,326 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorGray"
     tools:context=".controlling.konseling.KonselingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryLight">
+        android:orientation="vertical">
 
-        <TextView
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="KONSELING"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryLight">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryLight"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="start"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Waktu tersisa : "
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_waktu_tersisa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8 bulan 29 hari "
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="start"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dokter : "
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_dokter_konseling"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dr. Sinta Wijayanti"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="start"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hari : "
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_date_konseling"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:text="Tanggal"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/view_more_konseling"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="Lihat monitoring sebelumnya"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryLight"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryLight"
+                    android:orientation="vertical">
+
+                    <antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
+                        android:id="@+id/circular_progress"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        app:direction="clockwise"
+                        app:dotWidth="16dp"
+                        app:drawDot="false"
+                        app:enableProgressAnimation="true"
+                        app:progressBackgroundColor="@color/colorGray"
+                        app:progressBackgroundStrokeWidth="8dp"
+                        app:progressCap="round"
+                        app:progressColor="@color/colorAccentYellow"
+                        app:progressStrokeWidth="8dp"
+                        app:startAngle="270"
+                        app:textColor="@color/colorDarkGray"
+                        app:textSize="14sp"
+                        app:fillBackground="false" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kalori"
+                        android:textSize="12dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textAlignment="center"
+                        android:layout_marginBottom="8dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorGray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorPrimaryLight"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="8dp">
+
+                        <antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
+                            android:id="@+id/circular_progress_protein"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="8dp"
+                            app:direction="clockwise"
+                            app:dotWidth="16dp"
+                            app:drawDot="false"
+                            app:enableProgressAnimation="true"
+                            app:progressBackgroundColor="@color/colorGray"
+                            app:progressBackgroundStrokeWidth="4dp"
+                            app:progressCap="round"
+                            app:progressColor="@color/colorAccentRed"
+                            app:progressStrokeWidth="4dp"
+                            app:startAngle="270"
+                            app:textColor="@color/colorDarkGray"
+                            app:textSize="12sp"
+                            app:fillBackground="false" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Protein"
+                            android:textSize="12dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textAlignment="center"
+                            android:layout_marginBottom="8dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="8dp">
+
+                        <antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
+                            android:id="@+id/circular_progress_lemak"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="8dp"
+                            app:direction="clockwise"
+                            app:dotWidth="16dp"
+                            app:drawDot="false"
+                            app:enableProgressAnimation="true"
+                            app:progressBackgroundColor="@color/colorGray"
+                            app:progressBackgroundStrokeWidth="4dp"
+                            app:progressCap="round"
+                            app:progressColor="@color/colorAccentBlue"
+                            app:progressStrokeWidth="4dp"
+                            app:startAngle="270"
+                            app:textColor="@color/colorDarkGray"
+                            app:textSize="12sp"
+                            app:fillBackground="false"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Lemak"
+                            android:textSize="12dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textAlignment="center"
+                            android:layout_marginBottom="8dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="8dp">
+
+                        <antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
+                            android:id="@+id/circular_progress_karbohidrat"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="8dp"
+                            app:direction="clockwise"
+                            app:dotWidth="16dp"
+                            app:drawDot="false"
+                            app:enableProgressAnimation="true"
+                            app:progressBackgroundColor="@color/colorGray"
+                            app:progressBackgroundStrokeWidth="4dp"
+                            app:progressCap="round"
+                            app:progressColor="@color/colorAccentGreen"
+                            app:progressStrokeWidth="4dp"
+                            app:startAngle="270"
+                            app:textColor="@color/colorDarkGray"
+                            app:textSize="12sp"
+                            app:fillBackground="false" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Karbohidrat"
+                            android:textSize="12dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textAlignment="center"
+                            android:layout_marginBottom="8dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="48dp">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fb_create_monitoring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/colorAccent"
+            android:src="@drawable/ic_add_monitoring"
+            app:fabCustomSize="56dp" />
+
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
