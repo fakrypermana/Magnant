@@ -53,16 +53,12 @@ public class EmergencyFragment extends Fragment {
         recyclerView = view.findViewById(R.id.rv_emergency);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        // Add phone data
         listItem = new ArrayList<>();
-        this.listItem.add(new EmergencyItem("Arsyel","085723443658"));
-        for (int i = 0; i < 9; i++) {
-            int j = i + 1;
-            EmergencyItem listItem = new EmergencyItem(
-                    "Person " + j,
-                    "0813" + i + "4694153"
-            );
-            this.listItem.add(listItem);
-        }
+        this.listItem.add(new EmergencyItem("Rumah Sakit","081285277749"));
+        this.listItem.add(new EmergencyItem("Ambulan","085723443658"));
+        this.listItem.add(new EmergencyItem("Bidan","082144319399"));
+        this.listItem.add(new EmergencyItem("Dokter Kandungan","081314694153"));
 
         adapter = new EmergencyAdapter(listItem, new ClickListener() {
             @Override
