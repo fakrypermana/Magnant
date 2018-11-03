@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".loginregis.SignUpActivity"
+    tools:context=".loginregis.LoginActivity"
     android:background="@color/colorPrimaryLight">
 
     <RelativeLayout
@@ -40,6 +40,7 @@
             android:background="@color/colorPrimary">
 
             <EditText
+
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_gravity="center"
             android:layout_height="120dp"
-            android:background="@drawable/waves1" />
+            android:background="@drawable/waves1"/>
         <ProgressBar
             android:id="@+id/progressbar"
             android:layout_width="wrap_content"

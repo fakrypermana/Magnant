@@ -7,4 +7,4 @@
     android:background="@color/colorPrimary"
     app:layout_scrollFlags="scroll|enterAlways|snap"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-    app:titleTextColor="@color/colorPrimaryLight" />
+    app:titleTextColor="@color/colorPrimaryLight"/>

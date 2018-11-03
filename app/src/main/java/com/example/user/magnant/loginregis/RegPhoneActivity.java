@@ -30,7 +30,7 @@ public class RegPhoneActivity extends AppCompatActivity {
         findViewById(R.id.buttonContinue).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String code = editText.getText().toString().trim();
+                String code = editCode.getText().toString().trim();
 
                 String number = editText.getText().toString().trim();
 

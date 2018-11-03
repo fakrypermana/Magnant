@@ -37,7 +37,7 @@ public class ShopFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<ObatModel> listObat = new ArrayList<>();
     private ShopAdapter mAdapter;
-    private final static String TAG = "fakuy";
+    private final static String TAG = "obatobatan";
 
     public ShopFragment() {
         // Required empty public constructor
@@ -61,18 +61,20 @@ public class ShopFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
         recyclerView.setNestedScrollingEnabled(false);
 
-        listObat.add(new ObatModel("Prenagen",1,2000));
+
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("obat");
-        myRef.push().setValue(listObat);
+
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d(TAG, "onDataChange: "+dataSnapshot.getChildrenCount());
                 listObat.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
                     listObat.add(snapshot.getValue(ObatModel.class));
                     Log.d(TAG, "onDataChange: "+listObat.size());
                 }
@@ -81,7 +83,7 @@ public class ShopFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Log.w(TAG, "Failed to read value.", databaseError.toException());
             }
         });
 
