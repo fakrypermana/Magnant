@@ -29,14 +29,9 @@
         <activity android:name=".loginregis.RegPhoneActivity" />
         <activity android:name=".loginregis.VerifyPhoneActivity" />
         <activity android:name=".home.form_pemesanan.FormPemesananActivity" />
-<<<<<<< HEAD
         <activity android:name=".home.form_pemesanan.PembayaranActivity" />
-        <activity android:name=".controlling.konseling.DetailKonselingActivity" />
-        <activity android:name=".controlling.konseling.KonselingMessageActivity"></activity>
-    </application>
-=======
-        <activity android:name=".home.form_pemesanan.PembayaranActivity"></activity>
->>>>>>> 50e2670d7960bc8f2944b34c6fb06a13442abeed
-
+        <activity android:name=".controlling.konseling.DetailKonselingActivity"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert"/>
+        <activity android:name=".controlling.konseling.messaging.KonselingMessageActivity"></activity>
     </application>
 </manifest>

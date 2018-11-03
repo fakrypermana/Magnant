@@ -1,20 +1,32 @@
-package com.example.user.magnant.controlling.konseling;
+package com.example.user.magnant.controlling.konseling.messaging;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.user.magnant.MainActivity;
 import com.example.user.magnant.R;
-import com.example.user.magnant.controlling.ControlFragment;
+import com.example.user.magnant.controlling.konseling.model.Message;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class KonselingMessageActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private RecyclerView mMessageRecycler;
+    private MessageListAdapter mMessageAdapter;
+    private List<Message> messageList = new ArrayList<>();
+    private EditText edt_chatbox;
+    private Button btn_send;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +39,19 @@ public class KonselingMessageActivity extends AppCompatActivity {
 
         //setupview
         toolbar = findViewById(R.id.toolbar_message_konseling);
+        mMessageRecycler = findViewById(R.id.reyclerview_message_list);
+        edt_chatbox = findViewById(R.id.edittext_chatbox);
+        btn_send = findViewById(R.id.button_chatbox_send);
+
+        String message = edt_chatbox.getText().toString().trim();
         setSupportActionBar(toolbar);
         setTitle("Konseling");
+        messageList.add(new Message(message,"Dr. Sinta Wijayanti","11:40"));
 
         //setuplayout
-
+        mMessageAdapter = new MessageListAdapter(this, messageList);
+        mMessageRecycler.setLayoutManager(new LinearLayoutManager(this));
+        mMessageRecycler.setAdapter(mMessageAdapter);
 
 
     }

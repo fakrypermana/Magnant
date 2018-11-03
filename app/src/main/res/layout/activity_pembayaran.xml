@@ -56,6 +56,7 @@
                         android:layout_height="wrap_content"
                         android:onClick="radioButtonClicked"
                         android:text="Transfer"
+                        android:checked="true"
                         android:buttonTint="@color/colorPrimaryDark"
                         android:textColor="@color/colorPrimaryDark"/>
 

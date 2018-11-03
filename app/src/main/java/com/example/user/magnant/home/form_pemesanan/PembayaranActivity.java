@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.user.magnant.MainActivity;
@@ -13,6 +15,7 @@ import com.example.user.magnant.home.HomeFragment;
 
 public class PembayaranActivity extends AppCompatActivity {
     Button btn_bayar;
+    RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +33,27 @@ public class PembayaranActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    public void onRadioButtonClicked (View view){
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch (view.getId()) {
+            case R.id.radioDompet:
+                if (checked)
+                    // Pirates are the best
+                    break;
+            case R.id.radioTransfer:
+                if (checked)
+                    // Ninjas rule
+                    break;
+            case R.id.radioVirtualAccount:
+                if (checked)
+                    // Ninjas rule
+                    break;
+        }
     }
 }
