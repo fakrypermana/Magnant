@@ -32,19 +32,20 @@
                 android:layout_height="wrap_content"
                 android:text="Lorem ipsum dolor sit amet"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="25dp" />
+                android:textSize="18dp" />
 
         </LinearLayout>
 
         <Button
             android:id="@+id/call_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/circle_button"
+            android:drawableTop="@drawable/ic_phonecall_black_24dp"
+            android:paddingTop="13dp"
             android:layout_gravity="center"
-            android:text="CALL"
-            android:layout_marginRight="10dp"
-            android:background="@color/colorAccent"/>
+            android:textColor="#fff" />
 
     </LinearLayout>
 

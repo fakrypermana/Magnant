@@ -36,5 +36,4 @@
         <activity android:name=".controlling.konseling.messaging.KonselingMessageActivity" />
         <activity android:name=".controlling.monitoring.AddMonitoringActivity"></activity>
     </application>
-
 </manifest>
